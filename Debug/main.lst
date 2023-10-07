@@ -1,0 +1,2682 @@
+Zilog eZ80 Macro Assembler Version 4.3 (19073001) RELISTED07-Oct-23     18:54:23     page:   1
+
+
+PC     Object              I  Line    Source 
+                           A     1    ; Zilog eZ80 ANSI C Compiler Release 3.4
+                           A     2    ; -nomodsect -optspeed -noreduceopt -nopadbranc
+                           A     3    ; -peephole -globalopt -localcse -const=ROM 
+                           A     4    	FILE	"..\main.c"
+                           A     5    	.assume ADL=1
+                           A     6    .DEBUG "C"
+                           A     7    	SEGMENT CODE
+                           A     8    .BEGREC "fmt_type",19
+                           A     9    .DEFINE "status"
+                           A    10    .VALUE 0
+                           A    11    .CLASS 8
+                           A    12    .TYPE 12
+                           A    13    .ENDEF
+                           A    14    .DEFINE "flags"
+                           A    15    .VALUE 1
+                           A    16    .CLASS 8
+                           A    17    .TYPE 12
+                           A    18    .ENDEF
+                           A    19    .DEFINE "size"
+                           A    20    .VALUE 2
+                           A    21    .CLASS 8
+                           A    22    .TYPE 2
+                           A    23    .ENDEF
+                           A    24    .DEFINE "chr"
+                           A    25    .VALUE 3
+                           A    26    .CLASS 8
+                           A    27    .TYPE 2
+                           A    28    .ENDEF
+                           A    29    .DEFINE "type"
+                           A    30    .VALUE 4
+                           A    31    .CLASS 8
+                           A    32    .TYPE 2
+                           A    33    .ENDEF
+                           A    34    .DEFINE "field_width"
+                           A    35    .VALUE 5
+                           A    36    .CLASS 8
+                           A    37    .TYPE 2
+                           A    38    .ENDEF
+                           A    39    .DEFINE "precision"
+                           A    40    .VALUE 6
+                           A    41    .CLASS 8
+                           A    42    .TYPE 2
+                           A    43    .ENDEF
+                           A    44    .DEFINE "set_begin"
+                           A    45    .VALUE 7
+                           A    46    .CLASS 8
+                           A    47    .TYPE 34
+                           A    48    .ENDEF
+                           A    49    .DEFINE "set_end"
+                           A    50    .VALUE 10
+                           A    51    .CLASS 8
+                           A    52    .TYPE 34
+                           A    53    .ENDEF
+                           A    54    .DEFINE "pad_whole"
+                           A    55    .VALUE 13
+                           A    56    .CLASS 8
+                           A    57    .TYPE 12
+                           A    58    .ENDEF
+                           A    59    .DEFINE "pad_pre_fract"
+                           A    60    .VALUE 14
+                           A    61    .CLASS 8
+                           A    62    .TYPE 12
+                           A    63    .ENDEF
+                           A    64    .DEFINE "pad_post_fract"
+                           A    65    .VALUE 15
+                           A    66    .CLASS 8
+                           A    67    .TYPE 12
+                           A    68    .ENDEF
+                           A    69    .DEFINE "pad_at"
+                           A    70    .VALUE 16
+                           A    71    .CLASS 8
+                           A    72    .TYPE 34
+                           A    73    .ENDEF
+                           A    74    .ENDREC "fmt_type"
+                           A    75    .BEGREC "flt_info",12
+                           A    76    .DEFINE "flags"
+                           A    77    .VALUE 0
+                           A    78    .CLASS 8
+                           A    79    .TYPE 12
+                           A    80    .ENDEF
+                           A    81    .DEFINE "exp"
+                           A    82    .VALUE 1
+                           A    83    .CLASS 8
+                           A    84    .TYPE 2
+                           A    85    .ENDEF
+                           A    86    .DEFINE "digits"
+                           A    87    .VALUE 2
+                           A    88    .CLASS 8
+                           A    89    .DIM 10
+                           A    90    .TYPE 108
+                           A    91    .ENDEF
+                           A    92    .ENDREC "flt_info"
+                           A    93    .BEGREC "NONAME0",6
+                           A    94    .DEFINE "quot"
+                           A    95    .VALUE 0
+                           A    96    .CLASS 8
+                           A    97    .TYPE 4
+                           A    98    .ENDEF
+                           A    99    .DEFINE "rem"
+                           A   100    .VALUE 3
+                           A   101    .CLASS 8
+                           A   102    .TYPE 4
+                           A   103    .ENDEF
+                           A   104    .ENDREC "NONAME0"
+                           A   105    .BEGREC "NONAME1",8
+                           A   106    .DEFINE "quot"
+                           A   107    .VALUE 0
+                           A   108    .CLASS 8
+                           A   109    .TYPE 5
+                           A   110    .ENDEF
+                           A   111    .DEFINE "rem"
+                           A   112    .VALUE 4
+                           A   113    .CLASS 8
+                           A   114    .TYPE 5
+                           A   115    .ENDEF
+                           A   116    .ENDREC "NONAME1"
+                           A   117    .BEGREC "header",6
+                           A   118    .DEFINE "s"
+                           A   119    .VALUE 0
+                           A   120    .CLASS 11
+                           A   121    .TAG "NONAME2"
+                           A   122    .TYPE 8
+                           A   123    .ENDEF
+                           A   124    .DEFINE "x"
+                           A   125    .VALUE 0
+                           A   126    .CLASS 11
+                           A   127    .TYPE 2
+                           A   128    .ENDEF
+                           A   129    .ENDREC "header"
+                           A   130    .BEGREC "NONAME2",6
+                           A   131    .DEFINE "ptr"
+                           A   132    .VALUE 0
+                           A   133    .CLASS 8
+                           A   134    .TAG "header"
+                           A   135    .TYPE 40
+                           A   136    .ENDEF
+                           A   137    .DEFINE "size"
+                           A   138    .VALUE 3
+                           A   139    .CLASS 8
+                           A   140    .TYPE 14
+                           A   141    .ENDEF
+                           A   142    .ENDREC "NONAME2"
+                           A   143    .BEGREC "NONAME3",8
+                           A   144    .DEFINE "baudRate"
+                           A   145    .VALUE 0
+                           A   146    .CLASS 8
+                           A   147    .TYPE 4
+                           A   148    .ENDEF
+                           A   149    .DEFINE "dataBits"
+                           A   150    .VALUE 3
+                           A   151    .CLASS 8
+                           A   152    .TYPE 12
+                           A   153    .ENDEF
+                           A   154    .DEFINE "stopBits"
+                           A   155    .VALUE 4
+                           A   156    .CLASS 8
+                           A   157    .TYPE 12
+                           A   158    .ENDEF
+                           A   159    .DEFINE "parity"
+                           A   160    .VALUE 5
+                           A   161    .CLASS 8
+                           A   162    .TYPE 12
+                           A   163    .ENDEF
+                           A   164    .DEFINE "flowcontrol"
+                           A   165    .VALUE 6
+                           A   166    .CLASS 8
+                           A   167    .TYPE 12
+                           A   168    .ENDEF
+                           A   169    .DEFINE "eir"
+                           A   170    .VALUE 7
+                           A   171    .CLASS 8
+                           A   172    .TYPE 12
+                           A   173    .ENDEF
+                           A   174    .ENDREC "NONAME3"
+                           A   175    .BEGREC "NONAME4",15
+                           A   176    .DEFINE "fs"
+                           A   177    .VALUE 0
+                           A   178    .CLASS 8
+                           A   179    .TYPE 46
+                           A   180    .ENDEF
+                           A   181    .DEFINE "id"
+                           A   182    .VALUE 3
+                           A   183    .CLASS 8
+                           A   184    .TYPE 13
+                           A   185    .ENDEF
+                           A   186    .DEFINE "attr"
+                           A   187    .VALUE 5
+                           A   188    .CLASS 8
+                           A   189    .TYPE 12
+                           A   190    .ENDEF
+                           A   191    .DEFINE "stat"
+                           A   192    .VALUE 6
+                           A   193    .CLASS 8
+                           A   194    .TYPE 12
+                           A   195    .ENDEF
+                           A   196    .DEFINE "sclust"
+                           A   197    .VALUE 7
+                           A   198    .CLASS 8
+                           A   199    .TYPE 15
+                           A   200    .ENDEF
+                           A   201    .DEFINE "objsize"
+                           A   202    .VALUE 11
+                           A   203    .CLASS 8
+                           A   204    .TYPE 15
+                           A   205    .ENDEF
+                           A   206    .ENDREC "NONAME4"
+                           A   207    .BEGREC "NONAME5",36
+                           A   208    .DEFINE "obj"
+                           A   209    .VALUE 0
+                           A   210    .CLASS 8
+                           A   211    .TAG "NONAME4"
+                           A   212    .TYPE 8
+                           A   213    .ENDEF
+                           A   214    .DEFINE "flag"
+                           A   215    .VALUE 15
+                           A   216    .CLASS 8
+                           A   217    .TYPE 12
+                           A   218    .ENDEF
+                           A   219    .DEFINE "err"
+                           A   220    .VALUE 16
+                           A   221    .CLASS 8
+                           A   222    .TYPE 12
+                           A   223    .ENDEF
+                           A   224    .DEFINE "fptr"
+                           A   225    .VALUE 17
+                           A   226    .CLASS 8
+                           A   227    .TYPE 15
+                           A   228    .ENDEF
+                           A   229    .DEFINE "clust"
+                           A   230    .VALUE 21
+                           A   231    .CLASS 8
+                           A   232    .TYPE 15
+                           A   233    .ENDEF
+                           A   234    .DEFINE "sect"
+                           A   235    .VALUE 25
+                           A   236    .CLASS 8
+                           A   237    .TYPE 15
+                           A   238    .ENDEF
+                           A   239    .DEFINE "dir_sect"
+                           A   240    .VALUE 29
+                           A   241    .CLASS 8
+                           A   242    .TYPE 15
+                           A   243    .ENDEF
+                           A   244    .DEFINE "dir_ptr"
+                           A   245    .VALUE 33
+                           A   246    .CLASS 8
+                           A   247    .TYPE 46
+                           A   248    .ENDEF
+                           A   249    .ENDREC "NONAME5"
+                           A   250    ;    1	//Copyright HeathenUK 2023, others' cop
+                           A   251    ;    2	
+                           A   252    ;    3	#include <stdio.h>
+                           A   253    ;    4	#include <stdlib.h>
+                           A   254    ;    5	#include <ctype.h>
+                           A   255    ;    6	#include <stdint.h>
+                           A   256    ;    7	#include <string.h>
+                           A   257    ;    8	#include <eZ80.h>
+                           A   258    ;    9	#include <defines.h>
+                           A   259    ;   10	#include "mos-interface.h"
+                           A   260    ;   11	#include "vdp.h"
+                           A   261    ;   12	
+                           A   262    ;   13	// Parameters:
+                           A   263    ;   14	// - argc: Argument count
+                           A   264    ;   15	// - argv: Pointer to the argument stri
+                           A   265    ;   16	//
+                           A   266    ;   17	
+                           A   267    ;   18	void putch24(uint24_t w)
+                           A   268    ;   19	{
+0400E5                     A   269    _putch24:
+                           A   270    .DEFINE "_putch24"
+                           A   271    
+                           A   272    .VALUE _putch24
+                           A   273    
+                           A   274    .CLASS 2
+                           A   275    
+                           A   276    .TYPE 65
+                           A   277    
+                           A   278    .ENDEF
+                           A   279    
+                           A   280    .BEGFUNC "putch24",19,"_putch24"
+                           A   281    
+                           A   282    .LINE 19
+                           A   283    
+                           A   284    .DEFINE "w"
+                           A   285    
+                           A   286    .CLASS 65
+                           A   287    
+                           A   288    .VALUE 6
+                           A   289    
+                           A   290    .TYPE 14
+                           A   291    
+                           A   292    .ENDEF
+                           A   293    
+                           A   294    .DEFINE "temp"
+                           A   295    
+                           A   296    .CLASS 65
+                           A   297    
+                           A   298    .VALUE -3
+                           A   299    
+                           A   300    .TYPE 14
+                           A   301    
+                           A   302    .ENDEF
+                           A   303    
+0400E5 DDE5                A   304    	PUSH	IX
+0400E7 DD210000 00         A   305    	LD	IX,0
+0400EC DD39                A   306    	ADD	IX,SP
+0400EE C5                  A   307    	PUSH	BC
+0400EF 3B                  A   308    	DEC	SP
+                           A   309    ;   20		uint24_t temp = w;
+                           A   310    ;   21		
+                           A   311    ;   22		putch(temp & 0xFF); // write LSB
+                           A   312    .LINE 22
+                           A   313    
+0400F0 DD7E06              A   314    	LD	A,(IX+%6)
+0400F3 B7ED62              A   315    	UEXT	HL
+0400F6 6F                  A   316    	LD	L,A
+0400F7 E5                  A   317    	PUSH	HL
+0400F8 DD77FC              A   318    	LD	(IX+%FFFFFFFC),A
+0400FB CD DA 18 04         A   319    	CALL	_putch
+0400FF DD7EFC              A   320    	LD	A,(IX+%FFFFFFFC)
+040102 C1                  A   321    	POP	BC
+                           A   322    ;   23		temp = temp >> 8;
+                           A   323    .LINE 23
+                           A   324    
+040103 B7ED62              A   325    	UEXT	HL
+040106 E5                  A   326    	PUSH	HL
+040107 DD2706              A   327    	LD	HL,(IX+%6)
+04010A E5                  A   328    	PUSH	HL
+04010B 33                  A   329    	INC	SP
+04010C E1                  A   330    	POP	HL
+04010D 33                  A   331    	INC	SP
+04010E 33                  A   332    	INC	SP
+04010F DD2FFD              A   333    	LD	(IX+%FFFFFFFD),HL
+                           A   334    ;   24		putch(temp & 0xFF);
+                           A   335    .LINE 24
+                           A   336    
+040112 DD7EFD              A   337    	LD	A,(IX+%FFFFFFFD)
+040115 B7ED62              A   338    	UEXT	HL
+040118 6F                  A   339    	LD	L,A
+040119 E5                  A   340    	PUSH	HL
+04011A DD77FC              A   341    	LD	(IX+%FFFFFFFC),A
+04011D CD DA 18 04         A   342    	CALL	_putch
+040121 DD7EFC              A   343    	LD	A,(IX+%FFFFFFFC)
+040124 C1                  A   344    	POP	BC
+                           A   345    ;   25		temp = temp >> 8;
+                           A   346    .LINE 25
+                           A   347    
+040125 B7ED62              A   348    	UEXT	HL
+040128 E5                  A   349    	PUSH	HL
+040129 DD27FD              A   350    	LD	HL,(IX+%FFFFFFFD)
+04012C E5                  A   351    	PUSH	HL
+04012D 33                  A   352    	INC	SP
+04012E E1                  A   353    	POP	HL
+04012F 33                  A   354    	INC	SP
+040130 33                  A   355    	INC	SP
+040131 DD2FFD              A   356    	LD	(IX+%FFFFFFFD),HL
+                           A   357    ;   26		putch(temp & 0xFF);
+                           A   358    .LINE 26
+                           A   359    
+040134 DD7EFD              A   360    	LD	A,(IX+%FFFFFFFD)
+040137 B7ED62              A   361    	UEXT	HL
+04013A 6F                  A   362    	LD	L,A
+04013B E5                  A   363    	PUSH	HL
+04013C CD DA 18 04         A   364    	CALL	_putch
+040140 C1                  A   365    	POP	BC
+                           A   366    ;   27		
+                           A   367    ;   28		return;	
+                           A   368    ;   29	}
+                           A   369    .LINE 29
+                           A   370    
+040141 DDF9                A   371    	LD	SP,IX
+040143 DDE1                A   372    	POP	IX
+040145 C9                  A   373    	RET	
+                           A   374    
+                           A   375    
+                           A   376    ;**************************** _putch24 ********
+                           A   377    ;Name                         Addr/Register   S
+                           A   378    ;_putch                              IMPORT  --
+                           A   379    ;temp                                  IX-3    
+                           A   380    ;w                                     IX+6    
+                           A   381    
+                           A   382    
+                           A   383    ; Stack Frame Size: 13 (bytes)
+                           A   384    ;       Spill Code: 0 (instruction)
+                           A   385    
+                           A   386    
+                           A   387    .ENDFUNC "putch24",29,"_putch24"
+                           A   388    ;   30	
+                           A   389    ;   31	void putch16(uint16_t w) {
+040146                     A   390    _putch16:
+                           A   391    .DEFINE "_putch16"
+                           A   392    
+                           A   393    .VALUE _putch16
+                           A   394    
+                           A   395    .CLASS 2
+                           A   396    
+                           A   397    .TYPE 65
+                           A   398    
+                           A   399    .ENDEF
+                           A   400    
+                           A   401    .BEGFUNC "putch16",31,"_putch16"
+                           A   402    
+                           A   403    .LINE 31
+                           A   404    
+                           A   405    .DEFINE "w"
+                           A   406    
+                           A   407    .CLASS 65
+                           A   408    
+                           A   409    .VALUE 6
+                           A   410    
+                           A   411    .TYPE 13
+                           A   412    
+                           A   413    .ENDEF
+                           A   414    
+040146 DDE5                A   415    	PUSH	IX
+040148 DD210000 00         A   416    	LD	IX,0
+04014D DD39                A   417    	ADD	IX,SP
+                           A   418    ;   32	
+                           A   419    ;   33		putch(w & 0xFF); // write LSB
+                           A   420    .LINE 33
+                           A   421    
+04014F DD0706              A   422    	LD	BC,(IX+%6)
+040152 CD 3C 20 04         A   423    	CALL	__stoiu
+040156 7D                  A   424    	LD	A,L
+040157 B7ED62              A   425    	UEXT	HL
+04015A 6F                  A   426    	LD	L,A
+04015B E5                  A   427    	PUSH	HL
+04015C CD DA 18 04         A   428    	CALL	_putch
+040160 C1                  A   429    	POP	BC
+                           A   430    ;   34		putch(w >> 8);	 // write MSB	
+                           A   431    .LINE 34
+                           A   432    
+040161 DD0706              A   433    	LD	BC,(IX+%6)
+040164 CD 3C 20 04         A   434    	CALL	__stoiu
+040168 E5C1                A   435    	LD	BC,HL
+04016A 3B                  A   436    	DEC	SP
+04016B C5                  A   437    	PUSH	BC
+04016C 33                  A   438    	INC	SP
+04016D F1                  A   439    	POP	AF
+04016E 17ED62              A   440    	SEXT	HL
+040171 E5                  A   441    	PUSH	HL
+040172 C5                  A   442    	PUSH	BC
+040173 33                  A   443    	INC	SP
+040174 C1                  A   444    	POP	BC
+040175 33                  A   445    	INC	SP
+040176 33                  A   446    	INC	SP
+040177 C5                  A   447    	PUSH	BC
+040178 CD DA 18 04         A   448    	CALL	_putch
+04017C C1                  A   449    	POP	BC
+                           A   450    ;   35	
+                           A   451    ;   36	}
+                           A   452    .LINE 36
+                           A   453    
+04017D DDF9                A   454    	LD	SP,IX
+04017F DDE1                A   455    	POP	IX
+040181 C9                  A   456    	RET	
+                           A   457    
+                           A   458    
+                           A   459    ;**************************** _putch16 ********
+                           A   460    ;Name                         Addr/Register   S
+                           A   461    ;_putch                              IMPORT  --
+                           A   462    ;w                                     IX+6    
+                           A   463    
+                           A   464    
+                           A   465    ; Stack Frame Size: 9 (bytes)
+                           A   466    ;       Spill Code: 0 (instruction)
+                           A   467    
+                           A   468    
+                           A   469    .ENDFUNC "putch16",36,"_putch16"
+                           A   470    ;   37	
+                           A   471    ;   38	uint8_t strtou8(const char *str) {
+040182                     A   472    _strtou8:
+                           A   473    .DEFINE "_strtou8"
+                           A   474    
+                           A   475    .VALUE _strtou8
+                           A   476    
+                           A   477    .CLASS 2
+                           A   478    
+                           A   479    .TYPE 76
+                           A   480    
+                           A   481    .ENDEF
+                           A   482    
+                           A   483    .BEGFUNC "strtou8",38,"_strtou8"
+                           A   484    
+                           A   485    .LINE 38
+                           A   486    
+                           A   487    .DEFINE "str"
+                           A   488    
+                           A   489    .CLASS 65
+                           A   490    
+                           A   491    .VALUE 6
+                           A   492    
+                           A   493    .TYPE 194
+                           A   494    
+                           A   495    .ENDEF
+                           A   496    
+                           A   497    .DEFINE "result"
+                           A   498    
+                           A   499    .CLASS 65
+                           A   500    
+                           A   501    .VALUE -1
+                           A   502    
+                           A   503    .TYPE 12
+                           A   504    
+                           A   505    .ENDEF
+                           A   506    
+                           A   507    .DEFINE "digit"
+                           A   508    
+                           A   509    .CLASS 65
+                           A   510    
+                           A   511    .VALUE -2
+                           A   512    
+                           A   513    .TYPE 12
+                           A   514    
+                           A   515    .ENDEF
+                           A   516    
+040182 DDE5                A   517    	PUSH	IX
+040184 DD210000 00         A   518    	LD	IX,0
+040189 DD39                A   519    	ADD	IX,SP
+04018B 3B                  A   520    	DEC	SP
+04018C 3B                  A   521    	DEC	SP
+                           A   522    ;   39	    uint8_t result = 0;
+                           A   523    .LINE 39
+                           A   524    
+04018D DD36FF00            A   525    	LD	(IX+%FFFFFFFF),%0
+                           A   526    ;   40	    const uint8_t maxDiv10 = 255 / 10;
+                           A   527    ;   41	    const uint8_t maxMod10 = 255 % 10;
+                           A   528    ;   42	
+                           A   529    ;   43	    // Skip leading white spaces
+                           A   530    ;   44	    while (*str == ' ' || *str == '\t' 
+                           A   531    .LINE 44
+                           A   532    
+040191 18 07               A   533    	JR	L_5
+040193                     A   534    L_6:
+                           A   535    ;   45	        str++;
+                           A   536    .LINE 45
+                           A   537    
+040193 DD0706              A   538    	LD	BC,(IX+%6)
+040196 03                  A   539    	INC	BC
+040197 DD0F06              A   540    	LD	(IX+%6),BC
+                           A   541    ;   46	    }
+04019A                     A   542    L_5:
+                           A   543    .LINE 46
+                           A   544    
+04019A DD2706              A   545    	LD	HL,(IX+%6)
+04019D 7E                  A   546    	LD	A,(HL)
+04019E 47                  A   547    	LD	B,A
+04019F 17ED62              A   548    	SEXT	HL
+0401A2 68                  A   549    	LD	L,B
+0401A3 01200000            A   550    	LD	BC,32
+0401A7 B7                  A   551    	OR	A,A
+0401A8 ED42                A   552    	SBC	HL,BC
+0401AA 28 E7               A   553    	JR	Z,L_6
+0401AC DD2706              A   554    	LD	HL,(IX+%6)
+0401AF 7E                  A   555    	LD	A,(HL)
+0401B0 47                  A   556    	LD	B,A
+0401B1 17ED62              A   557    	SEXT	HL
+0401B4 68                  A   558    	LD	L,B
+0401B5 01090000            A   559    	LD	BC,9
+0401B9 B7                  A   560    	OR	A,A
+0401BA ED42                A   561    	SBC	HL,BC
+0401BC 28 D5               A   562    	JR	Z,L_6
+0401BE DD2706              A   563    	LD	HL,(IX+%6)
+0401C1 7E                  A   564    	LD	A,(HL)
+0401C2 47                  A   565    	LD	B,A
+0401C3 17ED62              A   566    	SEXT	HL
+0401C6 68                  A   567    	LD	L,B
+0401C7 010A0000            A   568    	LD	BC,10
+0401CB B7                  A   569    	OR	A,A
+0401CC ED42                A   570    	SBC	HL,BC
+0401CE 28 C3               A   571    	JR	Z,L_6
+                           A   572    ;   47	
+                           A   573    ;   48	    // Convert digits
+                           A   574    ;   49	    while (*str >= '0' && *str <= '9') 
+                           A   575    .LINE 49
+                           A   576    
+0401D0 18 37               A   577    	JR	L_13
+0401D2                     A   578    L_14:
+                           A   579    ;   50	        uint8_t digit = *str - '0';
+                           A   580    .LINE 50
+                           A   581    
+0401D2 DD2706              A   582    	LD	HL,(IX+%6)
+0401D5 7E                  A   583    	LD	A,(HL)
+0401D6 D630                A   584    	SUB	A,%30
+0401D8 DD77FE              A   585    	LD	(IX+%FFFFFFFE),A
+                           A   586    ;   51	        if (result > maxDiv10 || (resul
+                           A   587    .LINE 51
+                           A   588    
+0401DB 3E19                A   589    	LD	A,%19
+0401DD DDBEFF              A   590    	CP	A,(IX+%FFFFFFFF)
+0401E0 38 0E               A   591    	JR	C,L_10
+0401E2 DD7EFF              A   592    	LD	A,(IX+%FFFFFFFF)
+0401E5 FE19                A   593    	CP	A,%19
+0401E7 20 0B               A   594    	JR	NZ,L_11
+0401E9 3E05                A   595    	LD	A,%5
+0401EB DDBEFE              A   596    	CP	A,(IX+%FFFFFFFE)
+0401EE 30 04               A   597    	JR	NC,L_11
+0401F0                     A   598    L_10:
+                           A   599    ;   52	            return 255;
+                           A   600    .LINE 52
+                           A   601    
+0401F0 3EFF                A   602    	LD	A,%FF
+0401F2 18 56               A   603    	JR	L_17
+                           A   604    ;   53	        }
+0401F4                     A   605    L_11:
+                           A   606    .LINE 53
+                           A   607    
+                           A   608    ;   54	        result = result * 10 + digit;
+                           A   609    .LINE 54
+                           A   610    
+0401F4 060A                A   611    	LD	B,%A
+0401F6 DD4EFF              A   612    	LD	C,(IX+%FFFFFFFF)
+0401F9 ED4C                A   613    	MLT	BC
+0401FB 79                  A   614    	LD	A,C
+0401FC DD86FE              A   615    	ADD	A,(IX+%FFFFFFFE)
+0401FF DD77FF              A   616    	LD	(IX+%FFFFFFFF),A
+                           A   617    ;   55	        str++;
+                           A   618    .LINE 55
+                           A   619    
+040202 DD0706              A   620    	LD	BC,(IX+%6)
+040205 03                  A   621    	INC	BC
+040206 DD0F06              A   622    	LD	(IX+%6),BC
+                           A   623    ;   56	    }
+040209                     A   624    L_13:
+                           A   625    .LINE 56
+                           A   626    
+040209 DD2706              A   627    	LD	HL,(IX+%6)
+04020C 7E                  A   628    	LD	A,(HL)
+04020D 47                  A   629    	LD	B,A
+04020E 17ED62              A   630    	SEXT	HL
+040211 68                  A   631    	LD	L,B
+040212 01300000            A   632    	LD	BC,48
+040216 B7                  A   633    	OR	A,A
+040217 ED42                A   634    	SBC	HL,BC
+040219 FA 23 02 04         A   635    	JP	M,L__10
+04021D EA 47 02 04         A   636    	JP	PE,L_16
+040221 18 04               A   637    	JR	L__11
+040223                     A   638    L__10:
+040223 E2 47 02 04         A   639    	JP	PO,L_16
+040227                     A   640    L__11:
+040227 DD2706              A   641    	LD	HL,(IX+%6)
+04022A 7E                  A   642    	LD	A,(HL)
+04022B 47                  A   643    	LD	B,A
+04022C 17ED62              A   644    	SEXT	HL
+04022F 68                  A   645    	LD	L,B
+040230 E5C1                A   646    	LD	BC,HL
+040232 21390000            A   647    	LD	HL,57
+040236 B7                  A   648    	OR	A,A
+040237 ED42                A   649    	SBC	HL,BC
+040239 F2 43 02 04         A   650    	JP	P,L__12
+04023D EA D2 01 04         A   651    	JP	PE,L_14
+040241 18 04               A   652    	JR	L__13
+040243                     A   653    L__12:
+040243 E2 D2 01 04         A   654    	JP	PO,L_14
+040247                     A   655    L__13:
+040247                     A   656    L_16:
+                           A   657    ;   57	
+                           A   658    ;   58	    return result;
+                           A   659    .LINE 58
+                           A   660    
+040247 DD7EFF              A   661    	LD	A,(IX+%FFFFFFFF)
+                           A   662    ;   59	}
+04024A                     A   663    L_17:
+                           A   664    .LINE 59
+                           A   665    
+04024A DDF9                A   666    	LD	SP,IX
+04024C DDE1                A   667    	POP	IX
+04024E C9                  A   668    	RET	
+                           A   669    
+                           A   670    
+                           A   671    ;**************************** _strtou8 ********
+                           A   672    ;Name                         Addr/Register   S
+                           A   673    ;digit                                 IX-2    
+                           A   674    ;result                                IX-1    
+                           A   675    ;str                                   IX+6    
+                           A   676    
+                           A   677    
+                           A   678    ; Stack Frame Size: 11 (bytes)
+                           A   679    ;       Spill Code: 0 (instruction)
+                           A   680    
+                           A   681    
+                           A   682    .ENDFUNC "strtou8",59,"_strtou8"
+                           A   683    ;   60	
+                           A   684    ;   61	uint24_t strtou24(const char *str) {
+04024F                     A   685    _strtou24:
+                           A   686    .DEFINE "_strtou24"
+                           A   687    
+                           A   688    .VALUE _strtou24
+                           A   689    
+                           A   690    .CLASS 2
+                           A   691    
+                           A   692    .TYPE 78
+                           A   693    
+                           A   694    .ENDEF
+                           A   695    
+                           A   696    .BEGFUNC "strtou24",61,"_strtou24"
+                           A   697    
+                           A   698    .LINE 61
+                           A   699    
+                           A   700    .DEFINE "str"
+                           A   701    
+                           A   702    .CLASS 65
+                           A   703    
+                           A   704    .VALUE 6
+                           A   705    
+                           A   706    .TYPE 194
+                           A   707    
+                           A   708    .ENDEF
+                           A   709    
+                           A   710    .DEFINE "result"
+                           A   711    
+                           A   712    .CLASS 65
+                           A   713    
+                           A   714    .VALUE -4
+                           A   715    
+                           A   716    .TYPE 15
+                           A   717    
+                           A   718    .ENDEF
+                           A   719    
+                           A   720    .DEFINE "digit"
+                           A   721    
+                           A   722    .CLASS 65
+                           A   723    
+                           A   724    .VALUE -8
+                           A   725    
+                           A   726    .TYPE 15
+                           A   727    
+                           A   728    .ENDEF
+                           A   729    
+04024F DDE5                A   730    	PUSH	IX
+040251 DD210000 00         A   731    	LD	IX,0
+040256 DD39                A   732    	ADD	IX,SP
+040258 C5                  A   733    	PUSH	BC
+040259 C5                  A   734    	PUSH	BC
+04025A 3B                  A   735    	DEC	SP
+04025B 3B                  A   736    	DEC	SP
+                           A   737    ;   62	    uint32_t result = 0;
+                           A   738    .LINE 62
+                           A   739    
+04025C 01000000            A   740    	LD	BC,0
+040260 AF                  A   741    	XOR	A,A
+040261 DD0FFC              A   742    	LD	(IX+%FFFFFFFC),BC
+040264 DD77FF              A   743    	LD	(IX+%FFFFFFFF),A
+                           A   744    ;   63	    const uint32_t maxDiv10 = 1677721;
+                           A   745    ;   64	    const uint32_t maxMod10 = 5;
+                           A   746    ;   65	
+                           A   747    ;   66	    // Skip leading white spaces
+                           A   748    ;   67	    while (*str == ' ' || *str == '\t' 
+                           A   749    .LINE 67
+                           A   750    
+040267 18 07               A   751    	JR	L_21
+040269                     A   752    L_22:
+                           A   753    ;   68	        str++;
+                           A   754    .LINE 68
+                           A   755    
+040269 DD0706              A   756    	LD	BC,(IX+%6)
+04026C 03                  A   757    	INC	BC
+04026D DD0F06              A   758    	LD	(IX+%6),BC
+                           A   759    ;   69	    }
+040270                     A   760    L_21:
+                           A   761    .LINE 69
+                           A   762    
+040270 DD2706              A   763    	LD	HL,(IX+%6)
+040273 7E                  A   764    	LD	A,(HL)
+040274 47                  A   765    	LD	B,A
+040275 17ED62              A   766    	SEXT	HL
+040278 68                  A   767    	LD	L,B
+040279 01200000            A   768    	LD	BC,32
+04027D B7                  A   769    	OR	A,A
+04027E ED42                A   770    	SBC	HL,BC
+040280 28 E7               A   771    	JR	Z,L_22
+040282 DD2706              A   772    	LD	HL,(IX+%6)
+040285 7E                  A   773    	LD	A,(HL)
+040286 47                  A   774    	LD	B,A
+040287 17ED62              A   775    	SEXT	HL
+04028A 68                  A   776    	LD	L,B
+04028B 01090000            A   777    	LD	BC,9
+04028F B7                  A   778    	OR	A,A
+040290 ED42                A   779    	SBC	HL,BC
+040292 28 D5               A   780    	JR	Z,L_22
+040294 DD2706              A   781    	LD	HL,(IX+%6)
+040297 7E                  A   782    	LD	A,(HL)
+040298 47                  A   783    	LD	B,A
+040299 17ED62              A   784    	SEXT	HL
+04029C 68                  A   785    	LD	L,B
+04029D 010A0000            A   786    	LD	BC,10
+0402A1 B7                  A   787    	OR	A,A
+0402A2 ED42                A   788    	SBC	HL,BC
+0402A4 28 C3               A   789    	JR	Z,L_22
+                           A   790    ;   70	
+                           A   791    ;   71	    // Convert digits
+                           A   792    ;   72	    while (*str >= '0' && *str <= '9') 
+                           A   793    .LINE 72
+                           A   794    
+0402A6 18 7A               A   795    	JR	L_29
+0402A8                     A   796    L_30:
+                           A   797    ;   73	        uint32_t digit = *str - '0';
+                           A   798    .LINE 73
+                           A   799    
+0402A8 DD2706              A   800    	LD	HL,(IX+%6)
+0402AB 7E                  A   801    	LD	A,(HL)
+0402AC 47                  A   802    	LD	B,A
+0402AD 17ED62              A   803    	SEXT	HL
+0402B0 68                  A   804    	LD	L,B
+0402B1 5C                  A   805    	LD	E,H
+0402B2 01300000            A   806    	LD	BC,48
+0402B6 AF                  A   807    	XOR	A,A
+0402B7 CD C8 20 04         A   808    	CALL	__lsub
+0402BB DD2FF8              A   809    	LD	(IX+%FFFFFFF8),HL
+0402BE DD73FB              A   810    	LD	(IX+%FFFFFFFB),E
+                           A   811    ;   74	        if (result > maxDiv10 || (resul
+                           A   812    .LINE 74
+                           A   813    
+0402C1 21999919            A   814    	LD	HL,1677721
+0402C5 1E00                A   815    	LD	E,%0
+0402C7 DD07FC              A   816    	LD	BC,(IX+%FFFFFFFC)
+0402CA DD7EFF              A   817    	LD	A,(IX+%FFFFFFFF)
+0402CD CD 51 21 04         A   818    	CALL	__lcmpu
+0402D1 38 23               A   819    	JR	C,L_26
+0402D3 DD27FC              A   820    	LD	HL,(IX+%FFFFFFFC)
+0402D6 DD5EFF              A   821    	LD	E,(IX+%FFFFFFFF)
+0402D9 01999919            A   822    	LD	BC,1677721
+0402DD AF                  A   823    	XOR	A,A
+0402DE CD 51 21 04         A   824    	CALL	__lcmpu
+0402E2 20 18               A   825    	JR	NZ,L_27
+0402E4 21050000            A   826    	LD	HL,5
+0402E8 1E00                A   827    	LD	E,%0
+0402EA DD07F8              A   828    	LD	BC,(IX+%FFFFFFF8)
+0402ED DD7EFB              A   829    	LD	A,(IX+%FFFFFFFB)
+0402F0 CD 51 21 04         A   830    	CALL	__lcmpu
+0402F4 30 06               A   831    	JR	NC,L_27
+0402F6                     A   832    L_26:
+                           A   833    ;   75	            return 16777215;  // Maximu
+                           A   834    .LINE 75
+                           A   835    
+0402F6 21FFFFFF            A   836    	LD	HL,16777215
+0402FA 18 67               A   837    	JR	L_33
+                           A   838    ;   76	        }
+0402FC                     A   839    L_27:
+                           A   840    .LINE 76
+                           A   841    
+                           A   842    ;   77	        result = result * 10 + digit;
+                           A   843    .LINE 77
+                           A   844    
+0402FC DD27FC              A   845    	LD	HL,(IX+%FFFFFFFC)
+0402FF DD5EFF              A   846    	LD	E,(IX+%FFFFFFFF)
+040302 010A0000            A   847    	LD	BC,10
+040306 AF                  A   848    	XOR	A,A
+040307 CD 9C 21 04         A   849    	CALL	__lmulu
+04030B DD07F8              A   850    	LD	BC,(IX+%FFFFFFF8)
+04030E DD7EFB              A   851    	LD	A,(IX+%FFFFFFFB)
+040311 CD DD 1C 04         A   852    	CALL	__ladd
+040315 DD2FFC              A   853    	LD	(IX+%FFFFFFFC),HL
+040318 DD73FF              A   854    	LD	(IX+%FFFFFFFF),E
+                           A   855    ;   78	        str++;
+                           A   856    .LINE 78
+                           A   857    
+04031B DD0706              A   858    	LD	BC,(IX+%6)
+04031E 03                  A   859    	INC	BC
+04031F DD0F06              A   860    	LD	(IX+%6),BC
+                           A   861    ;   79	    }
+040322                     A   862    L_29:
+                           A   863    .LINE 79
+                           A   864    
+040322 DD2706              A   865    	LD	HL,(IX+%6)
+040325 7E                  A   866    	LD	A,(HL)
+040326 47                  A   867    	LD	B,A
+040327 17ED62              A   868    	SEXT	HL
+04032A 68                  A   869    	LD	L,B
+04032B 01300000            A   870    	LD	BC,48
+04032F B7                  A   871    	OR	A,A
+040330 ED42                A   872    	SBC	HL,BC
+040332 FA 3C 03 04         A   873    	JP	M,L__23
+040336 EA 60 03 04         A   874    	JP	PE,L_32
+04033A 18 04               A   875    	JR	L__24
+04033C                     A   876    L__23:
+04033C E2 60 03 04         A   877    	JP	PO,L_32
+040340                     A   878    L__24:
+040340 DD2706              A   879    	LD	HL,(IX+%6)
+040343 7E                  A   880    	LD	A,(HL)
+040344 47                  A   881    	LD	B,A
+040345 17ED62              A   882    	SEXT	HL
+040348 68                  A   883    	LD	L,B
+040349 E5C1                A   884    	LD	BC,HL
+04034B 21390000            A   885    	LD	HL,57
+04034F B7                  A   886    	OR	A,A
+040350 ED42                A   887    	SBC	HL,BC
+040352 F2 5C 03 04         A   888    	JP	P,L__25
+040356 EA A8 02 04         A   889    	JP	PE,L_30
+04035A 18 04               A   890    	JR	L__26
+04035C                     A   891    L__25:
+04035C E2 A8 02 04         A   892    	JP	PO,L_30
+040360                     A   893    L__26:
+040360                     A   894    L_32:
+                           A   895    ;   80	
+                           A   896    ;   81	    return result;
+                           A   897    .LINE 81
+                           A   898    
+040360 DD27FC              A   899    	LD	HL,(IX+%FFFFFFFC)
+                           A   900    ;   82	}
+040363                     A   901    L_33:
+                           A   902    .LINE 82
+                           A   903    
+040363 DDF9                A   904    	LD	SP,IX
+040365 DDE1                A   905    	POP	IX
+040367 C9                  A   906    	RET	
+                           A   907    
+                           A   908    
+                           A   909    ;**************************** _strtou24 *******
+                           A   910    ;Name                         Addr/Register   S
+                           A   911    ;digit                                 IX-8    
+                           A   912    ;result                                IX-4    
+                           A   913    ;str                                   IX+6    
+                           A   914    
+                           A   915    
+                           A   916    ; Stack Frame Size: 17 (bytes)
+                           A   917    ;       Spill Code: 0 (instruction)
+                           A   918    
+                           A   919    
+                           A   920    .ENDFUNC "strtou24",82,"_strtou24"
+                           A   921    ;   83	
+                           A   922    ;   84	#define CHUNK_SIZE 4096
+                           A   923    ;   85	
+                           A   924    ;   86	void load_wav(const char * filename, in
+040368                     A   925    _load_wav:
+                           A   926    .DEFINE "_load_wav"
+                           A   927    
+                           A   928    .VALUE _load_wav
+                           A   929    
+                           A   930    .CLASS 2
+                           A   931    
+                           A   932    .TYPE 65
+                           A   933    
+                           A   934    .ENDEF
+                           A   935    
+                           A   936    .BEGFUNC "load_wav",86,"_load_wav"
+                           A   937    
+                           A   938    .LINE 86
+                           A   939    
+                           A   940    .DEFINE "filename"
+                           A   941    
+                           A   942    .CLASS 65
+                           A   943    
+                           A   944    .VALUE 6
+                           A   945    
+                           A   946    .TYPE 194
+                           A   947    
+                           A   948    .ENDEF
+                           A   949    
+                           A   950    .DEFINE "sample_id"
+                           A   951    
+                           A   952    .CLASS 65
+                           A   953    
+                           A   954    .VALUE 9
+                           A   955    
+                           A   956    .TYPE 2
+                           A   957    
+                           A   958    .ENDEF
+                           A   959    
+                           A   960    .DEFINE "i"
+                           A   961    
+                           A   962    .CLASS 65
+                           A   963    
+                           A   964    .VALUE -2
+                           A   965    
+                           A   966    .TYPE 13
+                           A   967    
+                           A   968    .ENDEF
+                           A   969    
+                           A   970    .DEFINE "fp"
+                           A   971    
+                           A   972    .CLASS 65
+                           A   973    
+                           A   974    .VALUE -3
+                           A   975    
+                           A   976    .TYPE 12
+                           A   977    
+                           A   978    .ENDEF
+                           A   979    
+                           A   980    .DEFINE "sample_buffer"
+                           A   981    
+                           A   982    .CLASS 65
+                           A   983    
+                           A   984    .VALUE -9
+                           A   985    
+                           A   986    .TYPE 34
+                           A   987    
+                           A   988    .ENDEF
+                           A   989    
+                           A   990    .DEFINE "chunk"
+                           A   991    
+                           A   992    .CLASS 65
+                           A   993    
+                           A   994    .VALUE -12
+                           A   995    
+                           A   996    .TYPE 14
+                           A   997    
+                           A   998    .ENDEF
+                           A   999    
+                           A  1000    .DEFINE "remaining_data"
+                           A  1001    
+                           A  1002    .CLASS 65
+                           A  1003    
+                           A  1004    .VALUE -15
+                           A  1005    
+                           A  1006    .TYPE 14
+                           A  1007    
+                           A  1008    .ENDEF
+                           A  1009    
+                           A  1010    .DEFINE "data_size"
+                           A  1011    
+                           A  1012    .CLASS 65
+                           A  1013    
+                           A  1014    .VALUE -20
+                           A  1015    
+                           A  1016    .TYPE 15
+                           A  1017    
+                           A  1018    .ENDEF
+                           A  1019    
+                           A  1020    .DEFINE "header"
+                           A  1021    
+                           A  1022    .CLASS 65
+                           A  1023    
+                           A  1024    .VALUE -320
+                           A  1025    
+                           A  1026    .DIM 300
+                           A  1027    
+                           A  1028    .TYPE 108
+                           A  1029    
+                           A  1030    .ENDEF
+                           A  1031    
+040368 DDE5                A  1032    	PUSH	IX
+04036A DD210000 00         A  1033    	LD	IX,0
+04036F DD39                A  1034    	ADD	IX,SP
+040371 219BFEFF            A  1035    	LD	HL,-357
+040375 39                  A  1036    	ADD	HL,SP
+040376 F9                  A  1037    	LD	SP,HL
+                           A  1038    ;   87	
+                           A  1039    ;   88	    uint16_t i;
+                           A  1040    ;   89	    uint32_t data_size;
+                           A  1041    ;   90		uint24_t chunk, remaining_data, byt
+                           A  1042    ;   91	    unsigned char header[300];
+                           A  1043    ;   92	    int8_t * sample_buffer;
+                           A  1044    ;   93		//int8_t sample_buffer[CHUNK_SIZE];
+                           A  1045    ;   94	    uint8_t fp;
+                           A  1046    ;   95	    FIL * fo;
+                           A  1047    ;   96	
+                           A  1048    ;   97	    fp = mos_fopen(filename, 0x01);
+                           A  1049    .LINE 97
+                           A  1050    
+040377 01010000            A  1051    	LD	BC,1
+04037B C5                  A  1052    	PUSH	BC
+04037C DD0706              A  1053    	LD	BC,(IX+%6)
+04037F C5                  A  1054    	PUSH	BC
+040380 CD 32 1B 04         A  1055    	CALL	_mos_fopen
+040384 C1                  A  1056    	POP	BC
+040385 C1                  A  1057    	POP	BC
+040386 DD77FD              A  1058    	LD	(IX+%FFFFFFFD),A
+                           A  1059    ;   98	    if (!fp) {
+                           A  1060    .LINE 98
+                           A  1061    
+040389 B7                  A  1062    	OR	A,A
+04038A 20 2A               A  1063    	JR	NZ,L_45
+                           A  1064    ;   99	        printf("Error: could not open f
+                           A  1065    .LINE 99
+                           A  1066    
+04038C 01 42 20 04         A  1067    	LD	BC,___print_uputch
+040390 ED43 3C 22 04       A  1068    	LD	(___print_xputch),BC
+040395 01 42 22 04         A  1069    	LD	BC,L__29
+040399 C5                  A  1070    	PUSH	BC
+04039A CD A7 1E 04         A  1071    	CALL	___print_sendstring
+04039E C1                  A  1072    	POP	BC
+04039F DD0706              A  1073    	LD	BC,(IX+%6)
+0403A2 C5                  A  1074    	PUSH	BC
+0403A3 CD A7 1E 04         A  1075    	CALL	___print_sendstring
+0403A7 C1                  A  1076    	POP	BC
+0403A8 010A0000            A  1077    	LD	BC,10
+0403AC C5                  A  1078    	PUSH	BC
+0403AD CD 42 20 04         A  1079    	CALL	___print_uputch
+0403B1 C1                  A  1080    	POP	BC
+                           A  1081    ;  100	        return;
+                           A  1082    .LINE 100
+                           A  1083    
+0403B2 C3 43 0B 04         A  1084    	JR	L_82
+                           A  1085    ;  101	    }
+0403B6                     A  1086    L_45:
+                           A  1087    .LINE 101
+                           A  1088    
+                           A  1089    ;  102	
+                           A  1090    ;  103	    for (i = 0; i < 300 && !mos_feof(fp
+                           A  1091    .LINE 103
+                           A  1092    
+0403B6 DD36FE00            A  1093    	LD	(IX+%FFFFFFFE),%0
+0403BA DD36FF00            A  1094    	LD	(IX+%FFFFFFFF),%0
+0403BE C3 4D 04 04         A  1095    	JR	L_44
+0403C2                     A  1096    L_42:
+                           A  1097    ;  104	        header[i] = mos_fgetc(fp);
+                           A  1098    .LINE 104
+                           A  1099    
+0403C2 DD07FE              A  1100    	LD	BC,(IX+%FFFFFFFE)
+0403C5 CD 3C 20 04         A  1101    	CALL	__stoiu
+0403C9 E5C1                A  1102    	LD	BC,HL
+0403CB DDE5E1              A  1103    	LD	HL,IX
+0403CE 11C0FEFF            A  1104    	LD	DE,-320
+0403D2 19                  A  1105    	ADD	HL,DE
+0403D3 09                  A  1106    	ADD	HL,BC
+0403D4 DD2FFA              A  1107    	LD	(IX+%FFFFFFFA),HL
+0403D7 DD4EFD              A  1108    	LD	C,(IX+%FFFFFFFD)
+0403DA 0600                A  1109    	LD	B,%0
+0403DC C5                  A  1110    	PUSH	BC
+0403DD CD 5F 1B 04         A  1111    	CALL	_mos_fgetc
+0403E1 C1                  A  1112    	POP	BC
+0403E2 DD27FA              A  1113    	LD	HL,(IX+%FFFFFFFA)
+0403E5 77                  A  1114    	LD	(HL),A
+                           A  1115    ;  105	        if (i >= 7 && header[i - 7] == 
+                           A  1116    .LINE 105
+                           A  1117    
+0403E6 49010700            A  1118    	LD.LIS	BC,7
+0403EA DD27FE              A  1119    	LD	HL,(IX+%FFFFFFFE)
+0403ED B7                  A  1120    	OR	A,A
+0403EE 40ED42              A  1121    	SBC.SIS	HL,BC
+0403F1 38 50               A  1122    	JR	C,L_43
+0403F3 DD31FA              A  1123    	LD	IY,(IX+%FFFFFFFA)
+0403F6 ED23F9              A  1124    	LEA	HL,IY+%FFFFFFF9
+0403F9 7E                  A  1125    	LD	A,(HL)
+0403FA B7ED62              A  1126    	UEXT	HL
+0403FD 6F                  A  1127    	LD	L,A
+0403FE 01640000            A  1128    	LD	BC,100
+040402 B7                  A  1129    	OR	A,A
+040403 ED42                A  1130    	SBC	HL,BC
+040405 20 3C               A  1131    	JR	NZ,L_43
+040407 DD31FA              A  1132    	LD	IY,(IX+%FFFFFFFA)
+04040A ED23FA              A  1133    	LEA	HL,IY+%FFFFFFFA
+04040D 7E                  A  1134    	LD	A,(HL)
+04040E B7ED62              A  1135    	UEXT	HL
+040411 6F                  A  1136    	LD	L,A
+040412 01610000            A  1137    	LD	BC,97
+040416 B7                  A  1138    	OR	A,A
+040417 ED42                A  1139    	SBC	HL,BC
+040419 20 28               A  1140    	JR	NZ,L_43
+04041B DD31FA              A  1141    	LD	IY,(IX+%FFFFFFFA)
+04041E ED23FB              A  1142    	LEA	HL,IY+%FFFFFFFB
+040421 7E                  A  1143    	LD	A,(HL)
+040422 B7ED62              A  1144    	UEXT	HL
+040425 6F                  A  1145    	LD	L,A
+040426 01740000            A  1146    	LD	BC,116
+04042A B7                  A  1147    	OR	A,A
+04042B ED42                A  1148    	SBC	HL,BC
+04042D 20 14               A  1149    	JR	NZ,L_43
+04042F DD31FA              A  1150    	LD	IY,(IX+%FFFFFFFA)
+040432 ED23FC              A  1151    	LEA	HL,IY+%FFFFFFFC
+040435 7E                  A  1152    	LD	A,(HL)
+040436 B7ED62              A  1153    	UEXT	HL
+040439 6F                  A  1154    	LD	L,A
+04043A 01610000            A  1155    	LD	BC,97
+04043E B7                  A  1156    	OR	A,A
+04043F ED42                A  1157    	SBC	HL,BC
+040441 28 32               A  1158    	JR	Z,L_67
+                           A  1159    ;  106	            break; // found the start o
+                           A  1160    ;  107	        }
+                           A  1161    ;  108	    }
+040443                     A  1162    L_43:
+                           A  1163    .LINE 108
+                           A  1164    
+040443 DD27FE              A  1165    	LD	HL,(IX+%FFFFFFFE)
+040446 23                  A  1166    	INC	HL
+040447 DD75FE              A  1167    	LD	(IX+%FFFFFFFE),L
+04044A DD74FF              A  1168    	LD	(IX+%FFFFFFFF),H
+04044D                     A  1169    L_44:
+04044D 49012C01            A  1170    	LD.LIS	BC,300
+040451 DD27FE              A  1171    	LD	HL,(IX+%FFFFFFFE)
+040454 B7                  A  1172    	OR	A,A
+040455 40ED42              A  1173    	SBC.SIS	HL,BC
+040458 38 04               A  1174    	JR	C,L__36
+04045A 3E01                A  1175    	LD	A,%1
+04045C 18 01               A  1176    	JR	L__37
+04045E                     A  1177    L__36:
+04045E AF                  A  1178    	XOR	A,A
+04045F                     A  1179    L__37:
+04045F DD77F0              A  1180    	LD	(IX+%FFFFFFF0),A
+040462 B7                  A  1181    	OR	A,A
+040463 20 10               A  1182    	JR	NZ,L_67
+040465 DD4EFD              A  1183    	LD	C,(IX+%FFFFFFFD)
+040468 0600                A  1184    	LD	B,%0
+04046A C5                  A  1185    	PUSH	BC
+04046B CD 8C 1B 04         A  1186    	CALL	_mos_feof
+04046F C1                  A  1187    	POP	BC
+040470 B7                  A  1188    	OR	A,A
+040471 CA C2 03 04         A  1189    	JR	Z,L_42
+040475                     A  1190    L_67:
+                           A  1191    ;  109	
+                           A  1192    ;  110	    if (i >= 300 || !(header[0] == 'R' 
+                           A  1193    .LINE 110
+                           A  1194    
+040475 DD7EF0              A  1195    	LD	A,(IX+%FFFFFFF0)
+040478 B7                  A  1196    	OR	A,A
+040479 C2 61 06 04         A  1197    	JR	NZ,L_66
+04047D 21C0FEFF            A  1198    	LD	HL,-320
+040481 DDE5C1              A  1199    	LD	BC,IX
+040484 09                  A  1200    	ADD	HL,BC
+040485 7E                  A  1201    	LD	A,(HL)
+040486 B7ED62              A  1202    	UEXT	HL
+040489 6F                  A  1203    	LD	L,A
+04048A 01520000            A  1204    	LD	BC,82
+04048E B7                  A  1205    	OR	A,A
+04048F ED42                A  1206    	SBC	HL,BC
+040491 C2 61 06 04         A  1207    	JR	NZ,L_66
+040495 DDE5E1              A  1208    	LD	HL,IX
+040498 01C0FEFF            A  1209    	LD	BC,-320
+04049C 09                  A  1210    	ADD	HL,BC
+04049D 23                  A  1211    	INC	HL
+04049E 7E                  A  1212    	LD	A,(HL)
+04049F B7ED62              A  1213    	UEXT	HL
+0404A2 6F                  A  1214    	LD	L,A
+0404A3 01490000            A  1215    	LD	BC,73
+0404A7 B7                  A  1216    	OR	A,A
+0404A8 ED42                A  1217    	SBC	HL,BC
+0404AA C2 61 06 04         A  1218    	JR	NZ,L_66
+0404AE DDE5FDE1            A  1219    	LD	IY,IX
+0404B2 01C0FEFF            A  1220    	LD	BC,-320
+0404B6 FD09                A  1221    	ADD	IY,BC
+0404B8 ED2302              A  1222    	LEA	HL,IY+%2
+0404BB 7E                  A  1223    	LD	A,(HL)
+0404BC B7ED62              A  1224    	UEXT	HL
+0404BF 6F                  A  1225    	LD	L,A
+0404C0 01460000            A  1226    	LD	BC,70
+0404C4 B7                  A  1227    	OR	A,A
+0404C5 ED42                A  1228    	SBC	HL,BC
+0404C7 C2 61 06 04         A  1229    	JR	NZ,L_66
+0404CB DDE5FDE1            A  1230    	LD	IY,IX
+0404CF 01C0FEFF            A  1231    	LD	BC,-320
+0404D3 FD09                A  1232    	ADD	IY,BC
+0404D5 ED2303              A  1233    	LEA	HL,IY+%3
+0404D8 7E                  A  1234    	LD	A,(HL)
+0404D9 B7ED62              A  1235    	UEXT	HL
+0404DC 6F                  A  1236    	LD	L,A
+0404DD 01460000            A  1237    	LD	BC,70
+0404E1 B7                  A  1238    	OR	A,A
+0404E2 ED42                A  1239    	SBC	HL,BC
+0404E4 C2 61 06 04         A  1240    	JR	NZ,L_66
+                           A  1241    ;  111	        !(header[8] == 'W' && header[9]
+                           A  1242    .LINE 111
+                           A  1243    
+0404E8 DDE5FDE1            A  1244    	LD	IY,IX
+0404EC 01C0FEFF            A  1245    	LD	BC,-320
+0404F0 FD09                A  1246    	ADD	IY,BC
+0404F2 ED2308              A  1247    	LEA	HL,IY+%8
+0404F5 7E                  A  1248    	LD	A,(HL)
+0404F6 B7ED62              A  1249    	UEXT	HL
+0404F9 6F                  A  1250    	LD	L,A
+0404FA 01570000            A  1251    	LD	BC,87
+0404FE B7                  A  1252    	OR	A,A
+0404FF ED42                A  1253    	SBC	HL,BC
+040501 C2 61 06 04         A  1254    	JR	NZ,L_66
+040505 DDE5FDE1            A  1255    	LD	IY,IX
+040509 01C0FEFF            A  1256    	LD	BC,-320
+04050D FD09                A  1257    	ADD	IY,BC
+04050F ED2309              A  1258    	LEA	HL,IY+%9
+040512 7E                  A  1259    	LD	A,(HL)
+040513 B7ED62              A  1260    	UEXT	HL
+040516 6F                  A  1261    	LD	L,A
+040517 01410000            A  1262    	LD	BC,65
+04051B B7                  A  1263    	OR	A,A
+04051C ED42                A  1264    	SBC	HL,BC
+04051E C2 61 06 04         A  1265    	JR	NZ,L_66
+040522 DDE5FDE1            A  1266    	LD	IY,IX
+040526 01C0FEFF            A  1267    	LD	BC,-320
+04052A FD09                A  1268    	ADD	IY,BC
+04052C ED230A              A  1269    	LEA	HL,IY+%A
+04052F 7E                  A  1270    	LD	A,(HL)
+040530 B7ED62              A  1271    	UEXT	HL
+040533 6F                  A  1272    	LD	L,A
+040534 01560000            A  1273    	LD	BC,86
+040538 B7                  A  1274    	OR	A,A
+040539 ED42                A  1275    	SBC	HL,BC
+04053B C2 61 06 04         A  1276    	JR	NZ,L_66
+04053F DDE5FDE1            A  1277    	LD	IY,IX
+040543 01C0FEFF            A  1278    	LD	BC,-320
+040547 FD09                A  1279    	ADD	IY,BC
+040549 ED230B              A  1280    	LEA	HL,IY+%B
+04054C 7E                  A  1281    	LD	A,(HL)
+04054D B7ED62              A  1282    	UEXT	HL
+040550 6F                  A  1283    	LD	L,A
+040551 01450000            A  1284    	LD	BC,69
+040555 B7                  A  1285    	OR	A,A
+040556 ED42                A  1286    	SBC	HL,BC
+040558 C2 61 06 04         A  1287    	JR	NZ,L_66
+                           A  1288    ;  112	            header[12] == 'f' && header
+                           A  1289    .LINE 112
+                           A  1290    
+04055C DDE5FDE1            A  1291    	LD	IY,IX
+040560 01C0FEFF            A  1292    	LD	BC,-320
+040564 FD09                A  1293    	ADD	IY,BC
+040566 ED230C              A  1294    	LEA	HL,IY+%C
+040569 7E                  A  1295    	LD	A,(HL)
+04056A B7ED62              A  1296    	UEXT	HL
+04056D 6F                  A  1297    	LD	L,A
+04056E 01660000            A  1298    	LD	BC,102
+040572 B7                  A  1299    	OR	A,A
+040573 ED42                A  1300    	SBC	HL,BC
+040575 C2 61 06 04         A  1301    	JR	NZ,L_66
+040579 DDE5FDE1            A  1302    	LD	IY,IX
+04057D 01C0FEFF            A  1303    	LD	BC,-320
+040581 FD09                A  1304    	ADD	IY,BC
+040583 ED230D              A  1305    	LEA	HL,IY+%D
+040586 7E                  A  1306    	LD	A,(HL)
+040587 B7ED62              A  1307    	UEXT	HL
+04058A 6F                  A  1308    	LD	L,A
+04058B 016D0000            A  1309    	LD	BC,109
+04058F B7                  A  1310    	OR	A,A
+040590 ED42                A  1311    	SBC	HL,BC
+040592 C2 61 06 04         A  1312    	JR	NZ,L_66
+040596 DDE5FDE1            A  1313    	LD	IY,IX
+04059A 01C0FEFF            A  1314    	LD	BC,-320
+04059E FD09                A  1315    	ADD	IY,BC
+0405A0 ED230E              A  1316    	LEA	HL,IY+%E
+0405A3 7E                  A  1317    	LD	A,(HL)
+0405A4 B7ED62              A  1318    	UEXT	HL
+0405A7 6F                  A  1319    	LD	L,A
+0405A8 01740000            A  1320    	LD	BC,116
+0405AC B7                  A  1321    	OR	A,A
+0405AD ED42                A  1322    	SBC	HL,BC
+0405AF C2 61 06 04         A  1323    	JR	NZ,L_66
+0405B3 DDE5FDE1            A  1324    	LD	IY,IX
+0405B7 01C0FEFF            A  1325    	LD	BC,-320
+0405BB FD09                A  1326    	ADD	IY,BC
+0405BD ED230F              A  1327    	LEA	HL,IY+%F
+0405C0 7E                  A  1328    	LD	A,(HL)
+0405C1 B7ED62              A  1329    	UEXT	HL
+0405C4 6F                  A  1330    	LD	L,A
+0405C5 01200000            A  1331    	LD	BC,32
+0405C9 B7                  A  1332    	OR	A,A
+0405CA ED42                A  1333    	SBC	HL,BC
+0405CC C2 61 06 04         A  1334    	JR	NZ,L_66
+                           A  1335    ;  113	        !(header[16] == 0x10 && header[
+                           A  1336    .LINE 113
+                           A  1337    
+0405D0 DDE5FDE1            A  1338    	LD	IY,IX
+0405D4 01C0FEFF            A  1339    	LD	BC,-320
+0405D8 FD09                A  1340    	ADD	IY,BC
+0405DA ED2310              A  1341    	LEA	HL,IY+%10
+0405DD 7E                  A  1342    	LD	A,(HL)
+0405DE B7ED62              A  1343    	UEXT	HL
+0405E1 6F                  A  1344    	LD	L,A
+0405E2 01100000            A  1345    	LD	BC,16
+0405E6 B7                  A  1346    	OR	A,A
+0405E7 ED42                A  1347    	SBC	HL,BC
+0405E9 20 76               A  1348    	JR	NZ,L_66
+0405EB DDE5FDE1            A  1349    	LD	IY,IX
+0405EF 01C0FEFF            A  1350    	LD	BC,-320
+0405F3 FD09                A  1351    	ADD	IY,BC
+0405F5 FD7E11              A  1352    	LD	A,(IY+%11)
+0405F8 B7                  A  1353    	OR	A,A
+0405F9 20 66               A  1354    	JR	NZ,L_66
+0405FB DDE5FDE1            A  1355    	LD	IY,IX
+0405FF FD09                A  1356    	ADD	IY,BC
+040601 FD7E12              A  1357    	LD	A,(IY+%12)
+040604 B7                  A  1358    	OR	A,A
+040605 20 5A               A  1359    	JR	NZ,L_66
+040607 DDE5FDE1            A  1360    	LD	IY,IX
+04060B FD09                A  1361    	ADD	IY,BC
+04060D FD7E13              A  1362    	LD	A,(IY+%13)
+040610 B7                  A  1363    	OR	A,A
+040611 20 4E               A  1364    	JR	NZ,L_66
+                           A  1365    ;  114	            header[20] == 0x01 && heade
+                           A  1366    .LINE 114
+                           A  1367    
+040613 DDE5FDE1            A  1368    	LD	IY,IX
+040617 FD09                A  1369    	ADD	IY,BC
+040619 ED2314              A  1370    	LEA	HL,IY+%14
+04061C 7E                  A  1371    	LD	A,(HL)
+04061D B7ED62              A  1372    	UEXT	HL
+040620 6F                  A  1373    	LD	L,A
+040621 01010000            A  1374    	LD	BC,1
+040625 B7                  A  1375    	OR	A,A
+040626 ED42                A  1376    	SBC	HL,BC
+040628 20 37               A  1377    	JR	NZ,L_66
+04062A DDE5FDE1            A  1378    	LD	IY,IX
+04062E 01C0FEFF            A  1379    	LD	BC,-320
+040632 FD09                A  1380    	ADD	IY,BC
+040634 FD7E15              A  1381    	LD	A,(IY+%15)
+040637 B7                  A  1382    	OR	A,A
+040638 20 27               A  1383    	JR	NZ,L_66
+04063A DDE5FDE1            A  1384    	LD	IY,IX
+04063E FD09                A  1385    	ADD	IY,BC
+040640 ED2316              A  1386    	LEA	HL,IY+%16
+040643 7E                  A  1387    	LD	A,(HL)
+040644 B7ED62              A  1388    	UEXT	HL
+040647 6F                  A  1389    	LD	L,A
+040648 01010000            A  1390    	LD	BC,1
+04064C B7                  A  1391    	OR	A,A
+04064D ED42                A  1392    	SBC	HL,BC
+04064F 20 10               A  1393    	JR	NZ,L_66
+040651 DDE5FDE1            A  1394    	LD	IY,IX
+040655 01C0FEFF            A  1395    	LD	BC,-320
+040659 FD09                A  1396    	ADD	IY,BC
+04065B FD7E17              A  1397    	LD	A,(IY+%17)
+04065E B7                  A  1398    	OR	A,A
+04065F 28 22               A  1399    	JR	Z,L_68
+040661                     A  1400    L_66:
+                           A  1401    ;  115	        printf("Error: invalid WAV file
+                           A  1402    .LINE 115
+                           A  1403    
+040661 01 42 20 04         A  1404    	LD	BC,___print_uputch
+040665 ED43 3C 22 04       A  1405    	LD	(___print_xputch),BC
+04066A 01 5E 22 04         A  1406    	LD	BC,L__61
+04066E C5                  A  1407    	PUSH	BC
+04066F CD A7 1E 04         A  1408    	CALL	___print_sendstring
+040673 C1                  A  1409    	POP	BC
+                           A  1410    ;  116	        mos_fclose(fp);
+                           A  1411    .LINE 116
+                           A  1412    
+040674 DD4EFD              A  1413    	LD	C,(IX+%FFFFFFFD)
+040677 0600                A  1414    	LD	B,%0
+040679 C5                  A  1415    	PUSH	BC
+04067A CD 4A 1B 04         A  1416    	CALL	_mos_fclose
+04067E C1                  A  1417    	POP	BC
+                           A  1418    ;  117	        return;
+                           A  1419    .LINE 117
+                           A  1420    
+04067F C3 43 0B 04         A  1421    	JR	L_82
+                           A  1422    ;  118	    }
+040683                     A  1423    L_68:
+                           A  1424    .LINE 118
+                           A  1425    
+                           A  1426    ;  119	
+                           A  1427    ;  120	    //sample_rate = header[24] | (heade
+                           A  1428    ;  121	    data_size = header[i - 3] | (header
+                           A  1429    .LINE 121
+                           A  1430    
+040683 DD07FE              A  1431    	LD	BC,(IX+%FFFFFFFE)
+040686 CD 3C 20 04         A  1432    	CALL	__stoiu
+04068A E5C1                A  1433    	LD	BC,HL
+04068C DDE5E1              A  1434    	LD	HL,IX
+04068F 11C0FEFF            A  1435    	LD	DE,-320
+040693 19                  A  1436    	ADD	HL,DE
+040694 09                  A  1437    	ADD	HL,BC
+040695 FD21BDFE FF         A  1438    	LD	IY,-323
+04069A DDE5C1              A  1439    	LD	BC,IX
+04069D FD09                A  1440    	ADD	IY,BC
+04069F FD2F00              A  1441    	LD	(IY),HL
+0406A2 21BDFEFF            A  1442    	LD	HL,-323
+0406A6 DDE5C1              A  1443    	LD	BC,IX
+0406A9 09                  A  1444    	ADD	HL,BC
+0406AA ED31                A  1445    	LD	IY,(HL)
+0406AC B7ED62              A  1446    	UEXT	HL
+0406AF FD6EFE              A  1447    	LD	L,(IY+%FFFFFFFE)
+0406B2 E5                  A  1448    	PUSH	HL
+0406B3 E5                  A  1449    	PUSH	HL
+0406B4 B7ED62              A  1450    	UEXT	HL
+0406B7 E5                  A  1451    	PUSH	HL
+0406B8 33                  A  1452    	INC	SP
+0406B9 33                  A  1453    	INC	SP
+0406BA C1                  A  1454    	POP	BC
+0406BB C5                  A  1455    	PUSH	BC
+0406BC C5E1                A  1456    	LD	HL,BC
+0406BE 01B7FEFF            A  1457    	LD	BC,-329	; spill
+0406C2 CD 9B 1E 04         A  1458    	CALL	__istix
+0406C6 C1                  A  1459    	POP	BC
+0406C7 D1                  A  1460    	POP	DE
+0406C8 33                  A  1461    	INC	SP
+0406C9 21BDFEFF            A  1462    	LD	HL,-323
+0406CD E5                  A  1463    	PUSH	HL
+0406CE C5E1                A  1464    	LD	HL,BC
+0406D0 01B4FEFF            A  1465    	LD	BC,-332	; spill
+0406D4 CD 9B 1E 04         A  1466    	CALL	__istix
+0406D8 E1                  A  1467    	POP	HL
+0406D9 DDE5C1              A  1468    	LD	BC,IX
+0406DC E5                  A  1469    	PUSH	HL
+0406DD C5E1                A  1470    	LD	HL,BC	; unspill
+0406DF 01B1FEFF            A  1471    	LD	BC,-335	; spill
+0406E3 CD 9B 1E 04         A  1472    	CALL	__istix
+0406E7 E1                  A  1473    	POP	HL
+0406E8 01B4FEFF            A  1474    	LD	BC,-332	; unspill
+0406EC E5                  A  1475    	PUSH	HL
+0406ED CD 90 21 04         A  1476    	CALL	__ildix
+0406F1 E1                  A  1477    	POP	HL
+0406F2 01B1FEFF            A  1478    	LD	BC,-335	; unspill
+0406F6 E5                  A  1479    	PUSH	HL
+0406F7 CD 90 21 04         A  1480    	CALL	__ildix
+0406FB E5C1                A  1481    	LD	BC,HL
+0406FD E1                  A  1482    	POP	HL
+0406FE 09                  A  1483    	ADD	HL,BC
+0406FF ED31                A  1484    	LD	IY,(HL)
+040701 B7ED62              A  1485    	UEXT	HL
+040704 FD6EFD              A  1486    	LD	L,(IY+%FFFFFFFD)
+040707 E5C1                A  1487    	LD	BC,HL
+040709 7C                  A  1488    	LD	A,H
+04070A C5E1                A  1489    	LD	HL,BC
+04070C 01BAFEFF            A  1490    	LD	BC,-326	; spill
+040710 CD 9B 1E 04         A  1491    	CALL	__istix
+040714 01B7FEFF            A  1492    	LD	BC,-329	; unspill
+040718 CD 90 21 04         A  1493    	CALL	__ildix
+04071C E5C1                A  1494    	LD	BC,HL
+04071E C5E1                A  1495    	LD	HL,BC
+040720 01BAFEFF            A  1496    	LD	BC,-326	; unspill
+040724 E5                  A  1497    	PUSH	HL
+040725 CD 90 21 04         A  1498    	CALL	__ildix
+040729 E5C1                A  1499    	LD	BC,HL
+04072B E1                  A  1500    	POP	HL
+04072C CD 00 21 04         A  1501    	CALL	__lor
+040730 E5C1                A  1502    	LD	BC,HL
+040732 C5                  A  1503    	PUSH	BC
+040733 C5E1                A  1504    	LD	HL,BC
+040735 01AEFEFF            A  1505    	LD	BC,-338	; spill
+040739 CD 9B 1E 04         A  1506    	CALL	__istix
+04073D C1                  A  1507    	POP	BC
+04073E 21BDFEFF            A  1508    	LD	HL,-323
+040742 E5                  A  1509    	PUSH	HL
+040743 C5E1                A  1510    	LD	HL,BC
+040745 01ABFEFF            A  1511    	LD	BC,-341	; spill
+040749 CD 9B 1E 04         A  1512    	CALL	__istix
+04074D E1                  A  1513    	POP	HL
+04074E DDE5C1              A  1514    	LD	BC,IX
+040751 E5                  A  1515    	PUSH	HL
+040752 C5E1                A  1516    	LD	HL,BC	; unspill
+040754 01A8FEFF            A  1517    	LD	BC,-344	; spill
+040758 CD 9B 1E 04         A  1518    	CALL	__istix
+04075C E1                  A  1519    	POP	HL
+04075D 01ABFEFF            A  1520    	LD	BC,-341	; unspill
+040761 E5                  A  1521    	PUSH	HL
+040762 CD 90 21 04         A  1522    	CALL	__ildix
+040766 E1                  A  1523    	POP	HL
+040767 01A8FEFF            A  1524    	LD	BC,-344	; unspill
+04076B E5                  A  1525    	PUSH	HL
+04076C CD 90 21 04         A  1526    	CALL	__ildix
+040770 E5C1                A  1527    	LD	BC,HL
+040772 E1                  A  1528    	POP	HL
+040773 09                  A  1529    	ADD	HL,BC
+040774 ED31                A  1530    	LD	IY,(HL)
+040776 FD2B                A  1531    	DEC	IY
+040778 B7ED62              A  1532    	UEXT	HL
+04077B FD6E00              A  1533    	LD	L,(IY)
+04077E E5                  A  1534    	PUSH	HL
+04077F E5                  A  1535    	PUSH	HL
+040780 B7ED62              A  1536    	UEXT	HL
+040783 E5                  A  1537    	PUSH	HL
+040784 33                  A  1538    	INC	SP
+040785 C1                  A  1539    	POP	BC
+040786 E1                  A  1540    	POP	HL
+040787 C5                  A  1541    	PUSH	BC
+040788 FD21A6FE FF         A  1542    	LD	IY,-346	; spill
+04078D DDE5C1              A  1543    	LD	BC,IX	; spill
+040790 FD09                A  1544    	ADD	IY,BC
+040792 FD7500              A  1545    	LD	(IY),L
+040795 C1                  A  1546    	POP	BC
+040796 33                  A  1547    	INC	SP
+040797 33                  A  1548    	INC	SP
+040798 C5E1                A  1549    	LD	HL,BC
+04079A 01BAFEFF            A  1550    	LD	BC,-326	; spill
+04079E CD 9B 1E 04         A  1551    	CALL	__istix
+0407A2 01AEFEFF            A  1552    	LD	BC,-338	; unspill
+0407A6 CD 90 21 04         A  1553    	CALL	__ildix
+0407AA E5C1                A  1554    	LD	BC,HL
+0407AC C5E1                A  1555    	LD	HL,BC
+0407AE 01BAFEFF            A  1556    	LD	BC,-326	; unspill
+0407B2 E5                  A  1557    	PUSH	HL
+0407B3 CD 90 21 04         A  1558    	CALL	__ildix
+0407B7 E5C1                A  1559    	LD	BC,HL
+0407B9 E1                  A  1560    	POP	HL
+0407BA C5                  A  1561    	PUSH	BC
+0407BB FD21A7FE FF         A  1562    	LD	IY,-345	; spill
+0407C0 DDE5C1              A  1563    	LD	BC,IX	; spill
+0407C3 FD09                A  1564    	ADD	IY,BC
+0407C5 FD7500              A  1565    	LD	(IY),L
+0407C8 FD21A6FE FF         A  1566    	LD	IY,-346	; unspill
+0407CD DDE5C1              A  1567    	LD	BC,IX	; unspill
+0407D0 FD09                A  1568    	ADD	IY,BC
+0407D2 FD6E00              A  1569    	LD	L,(IY)
+0407D5 C1                  A  1570    	POP	BC
+0407D6 7D                  A  1571    	LD	A,L
+0407D7 C5                  A  1572    	PUSH	BC
+0407D8 FD21A7FE FF         A  1573    	LD	IY,-345	; unspill
+0407DD DDE5C1              A  1574    	LD	BC,IX	; unspill
+0407E0 FD09                A  1575    	ADD	IY,BC
+0407E2 FD6E00              A  1576    	LD	L,(IY)
+0407E5 C1                  A  1577    	POP	BC
+0407E6 CD 00 21 04         A  1578    	CALL	__lor
+0407EA E5C1                A  1579    	LD	BC,HL
+0407EC C5                  A  1580    	PUSH	BC
+0407ED C5E1                A  1581    	LD	HL,BC
+0407EF 01A3FEFF            A  1582    	LD	BC,-349	; spill
+0407F3 CD 9B 1E 04         A  1583    	CALL	__istix
+0407F7 C1                  A  1584    	POP	BC
+0407F8 21BDFEFF            A  1585    	LD	HL,-323
+0407FC E5                  A  1586    	PUSH	HL
+0407FD C5E1                A  1587    	LD	HL,BC
+0407FF 01A0FEFF            A  1588    	LD	BC,-352	; spill
+040803 CD 9B 1E 04         A  1589    	CALL	__istix
+040807 E1                  A  1590    	POP	HL
+040808 DDE5C1              A  1591    	LD	BC,IX
+04080B E5                  A  1592    	PUSH	HL
+04080C C5E1                A  1593    	LD	HL,BC	; unspill
+04080E 019DFEFF            A  1594    	LD	BC,-355	; spill
+040812 CD 9B 1E 04         A  1595    	CALL	__istix
+040816 E1                  A  1596    	POP	HL
+040817 01A0FEFF            A  1597    	LD	BC,-352	; unspill
+04081B E5                  A  1598    	PUSH	HL
+04081C CD 90 21 04         A  1599    	CALL	__ildix
+040820 E1                  A  1600    	POP	HL
+040821 019DFEFF            A  1601    	LD	BC,-355	; unspill
+040825 E5                  A  1602    	PUSH	HL
+040826 CD 90 21 04         A  1603    	CALL	__ildix
+04082A E5C1                A  1604    	LD	BC,HL
+04082C E1                  A  1605    	POP	HL
+04082D 09                  A  1606    	ADD	HL,BC
+04082E ED31                A  1607    	LD	IY,(HL)
+040830 FD6E00              A  1608    	LD	L,(IY)
+040833 FD219CFE FF         A  1609    	LD	IY,-356	; spill
+040838 DDE5C1              A  1610    	LD	BC,IX	; spill
+04083B FD09                A  1611    	ADD	IY,BC
+04083D FD7500              A  1612    	LD	(IY),L
+040840 01000000            A  1613    	LD	BC,0
+040844 C5E1                A  1614    	LD	HL,BC
+040846 01BAFEFF            A  1615    	LD	BC,-326	; spill
+04084A CD 9B 1E 04         A  1616    	CALL	__istix
+04084E 01A3FEFF            A  1617    	LD	BC,-349	; unspill
+040852 CD 90 21 04         A  1618    	CALL	__ildix
+040856 E5C1                A  1619    	LD	BC,HL
+040858 C5E1                A  1620    	LD	HL,BC
+04085A 01BAFEFF            A  1621    	LD	BC,-326	; unspill
+04085E E5                  A  1622    	PUSH	HL
+04085F CD 90 21 04         A  1623    	CALL	__ildix
+040863 E5C1                A  1624    	LD	BC,HL
+040865 E1                  A  1625    	POP	HL
+040866 C5                  A  1626    	PUSH	BC
+040867 FD21A7FE FF         A  1627    	LD	IY,-345	; spill
+04086C DDE5C1              A  1628    	LD	BC,IX	; spill
+04086F FD09                A  1629    	ADD	IY,BC
+040871 FD7500              A  1630    	LD	(IY),L
+040874 FD219CFE FF         A  1631    	LD	IY,-356	; unspill
+040879 DDE5C1              A  1632    	LD	BC,IX	; unspill
+04087C FD09                A  1633    	ADD	IY,BC
+04087E FD6E00              A  1634    	LD	L,(IY)
+040881 C1                  A  1635    	POP	BC
+040882 7D                  A  1636    	LD	A,L
+040883 C5                  A  1637    	PUSH	BC
+040884 FD21A7FE FF         A  1638    	LD	IY,-345	; unspill
+040889 DDE5C1              A  1639    	LD	BC,IX	; unspill
+04088C FD09                A  1640    	ADD	IY,BC
+04088E FD6E00              A  1641    	LD	L,(IY)
+040891 C1                  A  1642    	POP	BC
+040892 CD 00 21 04         A  1643    	CALL	__lor
+040896 DD2FEC              A  1644    	LD	(IX+%FFFFFFEC),HL
+040899 DD73EF              A  1645    	LD	(IX+%FFFFFFEF),E
+                           A  1646    ;  122	
+                           A  1647    ;  123	    if (!(header[34] == 8 && header[35]
+                           A  1648    .LINE 123
+                           A  1649    
+04089C DDE5FDE1            A  1650    	LD	IY,IX
+0408A0 01C0FEFF            A  1651    	LD	BC,-320
+0408A4 FD09                A  1652    	ADD	IY,BC
+0408A6 ED2322              A  1653    	LEA	HL,IY+%22
+0408A9 7E                  A  1654    	LD	A,(HL)
+0408AA B7ED62              A  1655    	UEXT	HL
+0408AD 6F                  A  1656    	LD	L,A
+0408AE 01080000            A  1657    	LD	BC,8
+0408B2 B7                  A  1658    	OR	A,A
+0408B3 ED42                A  1659    	SBC	HL,BC
+0408B5 20 10               A  1660    	JR	NZ,L_70
+0408B7 DDE5FDE1            A  1661    	LD	IY,IX
+0408BB 01C0FEFF            A  1662    	LD	BC,-320
+0408BF FD09                A  1663    	ADD	IY,BC
+0408C1 FD7E23              A  1664    	LD	A,(IY+%23)
+0408C4 B7                  A  1665    	OR	A,A
+0408C5 28 22               A  1666    	JR	Z,L_71
+0408C7                     A  1667    L_70:
+                           A  1668    ;  124	        printf("Error: unsupported PCM 
+                           A  1669    .LINE 124
+                           A  1670    
+0408C7 01 42 20 04         A  1671    	LD	BC,___print_uputch
+0408CB ED43 3C 22 04       A  1672    	LD	(___print_xputch),BC
+0408D0 01 77 22 04         A  1673    	LD	BC,L__64
+0408D4 C5                  A  1674    	PUSH	BC
+0408D5 CD A7 1E 04         A  1675    	CALL	___print_sendstring
+0408D9 C1                  A  1676    	POP	BC
+                           A  1677    ;  125	        mos_fclose(fp);
+                           A  1678    .LINE 125
+                           A  1679    
+0408DA DD4EFD              A  1680    	LD	C,(IX+%FFFFFFFD)
+0408DD 0600                A  1681    	LD	B,%0
+0408DF C5                  A  1682    	PUSH	BC
+0408E0 CD 4A 1B 04         A  1683    	CALL	_mos_fclose
+0408E4 C1                  A  1684    	POP	BC
+                           A  1685    ;  126	        return;
+                           A  1686    .LINE 126
+                           A  1687    
+0408E5 C3 43 0B 04         A  1688    	JR	L_82
+                           A  1689    ;  127	    }
+0408E9                     A  1690    L_71:
+                           A  1691    .LINE 127
+                           A  1692    
+                           A  1693    ;  128	
+                           A  1694    ;  129		//printf("Uploading a sample with l
+                           A  1695    ;  130	
+                           A  1696    ;  131		//printf("Made up of bytes %u and %
+                           A  1697    ;  132	
+                           A  1698    ;  133	    putch(23);
+                           A  1699    .LINE 133
+                           A  1700    
+0408E9 01170000            A  1701    	LD	BC,23
+0408ED C5                  A  1702    	PUSH	BC
+0408EE CD DA 18 04         A  1703    	CALL	_putch
+0408F2 C1                  A  1704    	POP	BC
+                           A  1705    ;  134	    putch(0);
+                           A  1706    .LINE 134
+                           A  1707    
+0408F3 01000000            A  1708    	LD	BC,0
+0408F7 C5                  A  1709    	PUSH	BC
+0408F8 CD DA 18 04         A  1710    	CALL	_putch
+0408FC C1                  A  1711    	POP	BC
+                           A  1712    ;  135	    putch(133);
+                           A  1713    .LINE 135
+                           A  1714    
+0408FD 01850000            A  1715    	LD	BC,133
+040901 C5                  A  1716    	PUSH	BC
+040902 CD DA 18 04         A  1717    	CALL	_putch
+040906 C1                  A  1718    	POP	BC
+                           A  1719    ;  136		putch(sample_id * -1); //Sample ID
+                           A  1720    .LINE 136
+                           A  1721    
+040907 DD7E09              A  1722    	LD	A,(IX+%9)
+04090A 17ED62              A  1723    	SEXT	HL
+04090D DD6E09              A  1724    	LD	L,(IX+%9)
+040910 CD 67 21 04         A  1725    	CALL	__ineg
+040914 E5                  A  1726    	PUSH	HL
+040915 FDE5                A  1727    	PUSH	IY
+040917 C5                  A  1728    	PUSH	BC
+040918 FD219BFE FF         A  1729    	LD	IY,-357
+04091D DDE5C1              A  1730    	LD	BC,IX
+040920 FD09                A  1731    	ADD	IY,BC
+040922 FD7700              A  1732    	LD	(IY),A
+040925 C1                  A  1733    	POP	BC
+040926 FDE1                A  1734    	POP	IY
+040928 CD DA 18 04         A  1735    	CALL	_putch
+04092C FDE5                A  1736    	PUSH	IY
+04092E C5                  A  1737    	PUSH	BC
+04092F FD219BFE FF         A  1738    	LD	IY,-357
+040934 DDE5C1              A  1739    	LD	BC,IX
+040937 FD09                A  1740    	ADD	IY,BC
+040939 FD7E00              A  1741    	LD	A,(IY)
+04093C C1                  A  1742    	POP	BC
+04093D FDE1                A  1743    	POP	IY
+04093F C1                  A  1744    	POP	BC
+                           A  1745    ;  137	    putch(5); //Sample mode
+                           A  1746    .LINE 137
+                           A  1747    
+040940 01050000            A  1748    	LD	BC,5
+040944 C5                  A  1749    	PUSH	BC
+040945 FDE5                A  1750    	PUSH	IY
+040947 C5                  A  1751    	PUSH	BC
+040948 FD219BFE FF         A  1752    	LD	IY,-357
+04094D DDE5C1              A  1753    	LD	BC,IX
+040950 FD09                A  1754    	ADD	IY,BC
+040952 FD7700              A  1755    	LD	(IY),A
+040955 C1                  A  1756    	POP	BC
+040956 FDE1                A  1757    	POP	IY
+040958 CD DA 18 04         A  1758    	CALL	_putch
+04095C FDE5                A  1759    	PUSH	IY
+04095E C5                  A  1760    	PUSH	BC
+04095F FD219BFE FF         A  1761    	LD	IY,-357
+040964 DDE5C1              A  1762    	LD	BC,IX
+040967 FD09                A  1763    	ADD	IY,BC
+040969 FD7E00              A  1764    	LD	A,(IY)
+04096C C1                  A  1765    	POP	BC
+04096D FDE1                A  1766    	POP	IY
+04096F C1                  A  1767    	POP	BC
+                           A  1768    ;  138	    putch(0); //Record mode
+                           A  1769    .LINE 138
+                           A  1770    
+040970 01000000            A  1771    	LD	BC,0
+040974 C5                  A  1772    	PUSH	BC
+040975 FDE5                A  1773    	PUSH	IY
+040977 C5                  A  1774    	PUSH	BC
+040978 FD219BFE FF         A  1775    	LD	IY,-357
+04097D DDE5C1              A  1776    	LD	BC,IX
+040980 FD09                A  1777    	ADD	IY,BC
+040982 FD7700              A  1778    	LD	(IY),A
+040985 C1                  A  1779    	POP	BC
+040986 FDE1                A  1780    	POP	IY
+040988 CD DA 18 04         A  1781    	CALL	_putch
+04098C FDE5                A  1782    	PUSH	IY
+04098E C5                  A  1783    	PUSH	BC
+04098F FD219BFE FF         A  1784    	LD	IY,-357
+040994 DDE5C1              A  1785    	LD	BC,IX
+040997 FD09                A  1786    	ADD	IY,BC
+040999 FD7E00              A  1787    	LD	A,(IY)
+04099C C1                  A  1788    	POP	BC
+04099D FDE1                A  1789    	POP	IY
+04099F C1                  A  1790    	POP	BC
+                           A  1791    ;  139	
+                           A  1792    ;  140		putch16(data_size & 0xFFFF);
+                           A  1793    .LINE 140
+                           A  1794    
+0409A0 DD07EC              A  1795    	LD	BC,(IX+%FFFFFFEC)
+0409A3 C5                  A  1796    	PUSH	BC
+0409A4 FDE5                A  1797    	PUSH	IY
+0409A6 C5                  A  1798    	PUSH	BC
+0409A7 FD219BFE FF         A  1799    	LD	IY,-357
+0409AC DDE5C1              A  1800    	LD	BC,IX
+0409AF FD09                A  1801    	ADD	IY,BC
+0409B1 FD7700              A  1802    	LD	(IY),A
+0409B4 C1                  A  1803    	POP	BC
+0409B5 FDE1                A  1804    	POP	IY
+0409B7 CD 46 01 04         A  1805    	CALL	_putch16
+0409BB FDE5                A  1806    	PUSH	IY
+0409BD C5                  A  1807    	PUSH	BC
+0409BE FD219BFE FF         A  1808    	LD	IY,-357
+0409C3 DDE5C1              A  1809    	LD	BC,IX
+0409C6 FD09                A  1810    	ADD	IY,BC
+0409C8 FD7E00              A  1811    	LD	A,(IY)
+0409CB C1                  A  1812    	POP	BC
+0409CC FDE1                A  1813    	POP	IY
+0409CE C1                  A  1814    	POP	BC
+                           A  1815    ;  141		putch(data_size >> 16);
+                           A  1816    .LINE 141
+                           A  1817    
+0409CF B7ED62              A  1818    	UEXT	HL
+0409D2 E5                  A  1819    	PUSH	HL
+0409D3 DD07ED              A  1820    	LD	BC,(IX+%FFFFFFED)
+0409D6 C5                  A  1821    	PUSH	BC
+0409D7 33                  A  1822    	INC	SP
+0409D8 C1                  A  1823    	POP	BC
+0409D9 33                  A  1824    	INC	SP
+0409DA 33                  A  1825    	INC	SP
+0409DB C5                  A  1826    	PUSH	BC
+0409DC FDE5                A  1827    	PUSH	IY
+0409DE C5                  A  1828    	PUSH	BC
+0409DF FD219BFE FF         A  1829    	LD	IY,-357
+0409E4 DDE5C1              A  1830    	LD	BC,IX
+0409E7 FD09                A  1831    	ADD	IY,BC
+0409E9 FD7700              A  1832    	LD	(IY),A
+0409EC C1                  A  1833    	POP	BC
+0409ED FDE1                A  1834    	POP	IY
+0409EF CD DA 18 04         A  1835    	CALL	_putch
+0409F3 FDE5                A  1836    	PUSH	IY
+0409F5 C5                  A  1837    	PUSH	BC
+0409F6 FD219BFE FF         A  1838    	LD	IY,-357
+0409FB DDE5C1              A  1839    	LD	BC,IX
+0409FE FD09                A  1840    	ADD	IY,BC
+040A00 FD7E00              A  1841    	LD	A,(IY)
+040A03 C1                  A  1842    	POP	BC
+040A04 FDE1                A  1843    	POP	IY
+040A06 C1                  A  1844    	POP	BC
+                           A  1845    ;  142			
+                           A  1846    ;  143		sample_buffer = (int8_t *) malloc(C
+                           A  1847    .LINE 143
+                           A  1848    
+040A07 01001000            A  1849    	LD	BC,4096
+040A0B C5                  A  1850    	PUSH	BC
+040A0C FDE5                A  1851    	PUSH	IY
+040A0E C5                  A  1852    	PUSH	BC
+040A0F FD219BFE FF         A  1853    	LD	IY,-357
+040A14 DDE5C1              A  1854    	LD	BC,IX
+040A17 FD09                A  1855    	ADD	IY,BC
+040A19 FD7700              A  1856    	LD	(IY),A
+040A1C C1                  A  1857    	POP	BC
+040A1D FDE1                A  1858    	POP	IY
+040A1F CD E8 1D 04         A  1859    	CALL	_malloc
+040A23 FDE5                A  1860    	PUSH	IY
+040A25 C5                  A  1861    	PUSH	BC
+040A26 FD219BFE FF         A  1862    	LD	IY,-357
+040A2B DDE5C1              A  1863    	LD	BC,IX
+040A2E FD09                A  1864    	ADD	IY,BC
+040A30 FD7E00              A  1865    	LD	A,(IY)
+040A33 C1                  A  1866    	POP	BC
+040A34 FDE1                A  1867    	POP	IY
+040A36 C1                  A  1868    	POP	BC
+040A37 DD2FF7              A  1869    	LD	(IX+%FFFFFFF7),HL
+                           A  1870    ;  144			
+                           A  1871    ;  145		remaining_data = data_size;
+                           A  1872    .LINE 145
+                           A  1873    
+040A3A DD07EC              A  1874    	LD	BC,(IX+%FFFFFFEC)
+040A3D DD0FF1              A  1875    	LD	(IX+%FFFFFFF1),BC
+                           A  1876    ;  146			
+                           A  1877    ;  147		while (remaining_data > 0) {
+                           A  1878    .LINE 147
+                           A  1879    
+040A40 C3 22 0B 04         A  1880    	JR	L_79
+040A44                     A  1881    L_80:
+                           A  1882    ;  148			
+                           A  1883    ;  149			if (remaining_data > CHUNK_SIZE
+                           A  1884    .LINE 149
+                           A  1885    
+040A44 DD07F1              A  1886    	LD	BC,(IX+%FFFFFFF1)
+040A47 21001000            A  1887    	LD	HL,4096
+040A4B B7                  A  1888    	OR	A,A
+040A4C ED42                A  1889    	SBC	HL,BC
+040A4E 30 09               A  1890    	JR	NC,L_73
+                           A  1891    ;  150				chunk = CHUNK_SIZE;
+                           A  1892    .LINE 150
+                           A  1893    
+040A50 01001000            A  1894    	LD	BC,4096
+040A54 DD0FF4              A  1895    	LD	(IX+%FFFFFFF4),BC
+                           A  1896    ;  151			} else chunk = remaining_data;
+                           A  1897    .LINE 151
+                           A  1898    
+040A57 18 06               A  1899    	JR	L_74
+040A59                     A  1900    L_73:
+040A59 DD07F1              A  1901    	LD	BC,(IX+%FFFFFFF1)
+040A5C DD0FF4              A  1902    	LD	(IX+%FFFFFFF4),BC
+040A5F                     A  1903    L_74:
+                           A  1904    ;  152			
+                           A  1905    ;  153			mos_fread(fp, sample_buffer, ch
+                           A  1906    .LINE 153
+                           A  1907    
+040A5F DD07F4              A  1908    	LD	BC,(IX+%FFFFFFF4)
+040A62 C5                  A  1909    	PUSH	BC
+040A63 DD07F7              A  1910    	LD	BC,(IX+%FFFFFFF7)
+040A66 C5                  A  1911    	PUSH	BC
+040A67 DD4EFD              A  1912    	LD	C,(IX+%FFFFFFFD)
+040A6A 0600                A  1913    	LD	B,%0
+040A6C C5                  A  1914    	PUSH	BC
+040A6D FDE5                A  1915    	PUSH	IY
+040A6F C5                  A  1916    	PUSH	BC
+040A70 FD219BFE FF         A  1917    	LD	IY,-357
+040A75 DDE5C1              A  1918    	LD	BC,IX
+040A78 FD09                A  1919    	ADD	IY,BC
+040A7A FD7700              A  1920    	LD	(IY),A
+040A7D C1                  A  1921    	POP	BC
+040A7E FDE1                A  1922    	POP	IY
+040A80 CD 5F 1C 04         A  1923    	CALL	_mos_fread
+040A84 FDE5                A  1924    	PUSH	IY
+040A86 C5                  A  1925    	PUSH	BC
+040A87 FD219BFE FF         A  1926    	LD	IY,-357
+040A8C DDE5C1              A  1927    	LD	BC,IX
+040A8F FD09                A  1928    	ADD	IY,BC
+040A91 FD7E00              A  1929    	LD	A,(IY)
+040A94 C1                  A  1930    	POP	BC
+040A95 FDE1                A  1931    	POP	IY
+040A97 C1                  A  1932    	POP	BC
+040A98 C1                  A  1933    	POP	BC
+040A99 C1                  A  1934    	POP	BC
+                           A  1935    ;  154	
+                           A  1936    ;  155				for (i = 0; i < chunk; ++i)
+                           A  1937    .LINE 155
+                           A  1938    
+040A9A DD36FE00            A  1939    	LD	(IX+%FFFFFFFE),%0
+040A9E DD36FF00            A  1940    	LD	(IX+%FFFFFFFF),%0
+040AA2 18 29               A  1941    	JR	L_77
+040AA4                     A  1942    L_75:
+                           A  1943    ;  156					sample_buffer[i] -= 128
+                           A  1944    .LINE 156
+                           A  1945    
+040AA4 DD07FE              A  1946    	LD	BC,(IX+%FFFFFFFE)
+040AA7 CD 3C 20 04         A  1947    	CALL	__stoiu
+040AAB DD07F7              A  1948    	LD	BC,(IX+%FFFFFFF7)
+040AAE 09                  A  1949    	ADD	HL,BC
+040AAF E5FDE1              A  1950    	LD	IY,HL
+040AB2 DD07FE              A  1951    	LD	BC,(IX+%FFFFFFFE)
+040AB5 CD 3C 20 04         A  1952    	CALL	__stoiu
+040AB9 DD07F7              A  1953    	LD	BC,(IX+%FFFFFFF7)
+040ABC 09                  A  1954    	ADD	HL,BC
+040ABD FD7E00              A  1955    	LD	A,(IY)
+040AC0 C680                A  1956    	ADD	A,%80
+040AC2 77                  A  1957    	LD	(HL),A
+040AC3 DD27FE              A  1958    	LD	HL,(IX+%FFFFFFFE)
+040AC6 23                  A  1959    	INC	HL
+040AC7 DD75FE              A  1960    	LD	(IX+%FFFFFFFE),L
+040ACA DD74FF              A  1961    	LD	(IX+%FFFFFFFF),H
+                           A  1962    ;  157				}
+040ACD                     A  1963    L_77:
+                           A  1964    .LINE 157
+                           A  1965    
+040ACD DD07FE              A  1966    	LD	BC,(IX+%FFFFFFFE)
+040AD0 CD 3C 20 04         A  1967    	CALL	__stoiu
+040AD4 DD07F4              A  1968    	LD	BC,(IX+%FFFFFFF4)
+040AD7 B7                  A  1969    	OR	A,A
+040AD8 ED42                A  1970    	SBC	HL,BC
+040ADA 38 C8               A  1971    	JR	C,L_75
+                           A  1972    ;  158	
+                           A  1973    ;  159			mos_puts(sample_buffer, chunk, 
+                           A  1974    .LINE 159
+                           A  1975    
+040ADC 01000000            A  1976    	LD	BC,0
+040AE0 C5                  A  1977    	PUSH	BC
+040AE1 DD07F4              A  1978    	LD	BC,(IX+%FFFFFFF4)
+040AE4 C5                  A  1979    	PUSH	BC
+040AE5 DD07F7              A  1980    	LD	BC,(IX+%FFFFFFF7)
+040AE8 C5                  A  1981    	PUSH	BC
+040AE9 FDE5                A  1982    	PUSH	IY
+040AEB C5                  A  1983    	PUSH	BC
+040AEC FD219BFE FF         A  1984    	LD	IY,-357
+040AF1 DDE5C1              A  1985    	LD	BC,IX
+040AF4 FD09                A  1986    	ADD	IY,BC
+040AF6 FD7700              A  1987    	LD	(IY),A
+040AF9 C1                  A  1988    	POP	BC
+040AFA FDE1                A  1989    	POP	IY
+040AFC CD F2 18 04         A  1990    	CALL	_mos_puts
+040B00 FDE5                A  1991    	PUSH	IY
+040B02 C5                  A  1992    	PUSH	BC
+040B03 FD219BFE FF         A  1993    	LD	IY,-357
+040B08 DDE5C1              A  1994    	LD	BC,IX
+040B0B FD09                A  1995    	ADD	IY,BC
+040B0D FD7E00              A  1996    	LD	A,(IY)
+040B10 C1                  A  1997    	POP	BC
+040B11 FDE1                A  1998    	POP	IY
+040B13 C1                  A  1999    	POP	BC
+040B14 C1                  A  2000    	POP	BC
+040B15 C1                  A  2001    	POP	BC
+                           A  2002    ;  160			remaining_data -= chunk;
+                           A  2003    .LINE 160
+                           A  2004    
+040B16 DD07F4              A  2005    	LD	BC,(IX+%FFFFFFF4)
+040B19 DD27F1              A  2006    	LD	HL,(IX+%FFFFFFF1)
+040B1C B7                  A  2007    	OR	A,A
+040B1D ED42                A  2008    	SBC	HL,BC
+040B1F DD2FF1              A  2009    	LD	(IX+%FFFFFFF1),HL
+                           A  2010    ;  161		
+                           A  2011    ;  162		}
+040B22                     A  2012    L_79:
+                           A  2013    .LINE 162
+                           A  2014    
+040B22 DD07F1              A  2015    	LD	BC,(IX+%FFFFFFF1)
+040B25 B7                  A  2016    	OR	A,A
+040B26 ED62                A  2017    	SBC	HL,HL
+040B28 B7                  A  2018    	OR	A,A
+040B29 ED42                A  2019    	SBC	HL,BC
+040B2B DA 44 0A 04         A  2020    	JR	C,L_80
+                           A  2021    ;  163		//	printf("Uploaded a sample with 
+                           A  2022    ;  164		free(sample_buffer);
+                           A  2023    .LINE 164
+                           A  2024    
+040B2F DD07F7              A  2025    	LD	BC,(IX+%FFFFFFF7)
+040B32 C5                  A  2026    	PUSH	BC
+040B33 CD E3 1C 04         A  2027    	CALL	_free
+040B37 C1                  A  2028    	POP	BC
+                           A  2029    ;  165	    mos_fclose(fp);
+                           A  2030    .LINE 165
+                           A  2031    
+040B38 DD4EFD              A  2032    	LD	C,(IX+%FFFFFFFD)
+040B3B 0600                A  2033    	LD	B,%0
+040B3D C5                  A  2034    	PUSH	BC
+040B3E CD 4A 1B 04         A  2035    	CALL	_mos_fclose
+040B42 C1                  A  2036    	POP	BC
+                           A  2037    ;  166	}
+040B43                     A  2038    L_82:
+                           A  2039    .LINE 166
+                           A  2040    
+040B43 DDF9                A  2041    	LD	SP,IX
+040B45 DDE1                A  2042    	POP	IX
+040B47 C9                  A  2043    	RET	
+                           A  2044    
+                           A  2045    
+                           A  2046    ;**************************** _load_wav *******
+                           A  2047    ;Name                         Addr/Register   S
+                           A  2048    ;_free                               IMPORT  --
+                           A  2049    ;_mos_puts                           IMPORT  --
+                           A  2050    ;_mos_fread                          IMPORT  --
+                           A  2051    ;_malloc                             IMPORT  --
+                           A  2052    ;_putch                              IMPORT  --
+                           A  2053    ;_mos_fclose                         IMPORT  --
+                           A  2054    ;_mos_feof                           IMPORT  --
+                           A  2055    ;_mos_fgetc                          IMPORT  --
+                           A  2056    ;___print_sendstring                 IMPORT  --
+                           A  2057    ;___print_xputch                     IMPORT    
+                           A  2058    ;___print_uputch                     IMPORT  --
+                           A  2059    ;_mos_fopen                          IMPORT  --
+                           A  2060    ;header                              IX-320    
+                           A  2061    ;data_size                            IX-20    
+                           A  2062    ;G_4                                  IX-16    
+                           A  2063    ;remaining_data                       IX-15    
+                           A  2064    ;chunk                                IX-12    
+                           A  2065    ;sample_buffer                         IX-9    
+                           A  2066    ;G_0                                   IX-6    
+                           A  2067    ;fp                                    IX-3    
+                           A  2068    ;i                                     IX-2    
+                           A  2069    ;sample_id                             IX+9    
+                           A  2070    ;filename                              IX+6    
+                           A  2071    
+                           A  2072    
+                           A  2073    ; Stack Frame Size: 369 (bytes)
+                           A  2074    ;       Spill Code: 0 (instruction)
+                           A  2075    
+                           A  2076    
+                           A  2077    .ENDFUNC "load_wav",166,"_load_wav"
+                           A  2078    	SEGMENT STRSECT
+042242                     A  2079    L__29:
+042242 4572726F 723A2063   A  2080    	DB	"Error: could not open file "
+04224A 6F756C64 206E6F74 
+042252 206F7065 6E206669 
+04225A 6C6520 
+04225D 00                  A  2081    	DB	0
+04225E                     A  2082    L__61:
+04225E 4572726F 723A2069   A  2083    	DB	"Error: invalid WAV file"
+042266 6E76616C 69642057 
+04226E 41562066 696C65 
+042275 0A00                A  2084    	DB	10,0
+042277                     A  2085    L__64:
+042277 4572726F 723A2075   A  2086    	DB	"Error: unsupported PCM format"
+04227F 6E737570 706F7274 
+042287 65642050 434D2066 
+04228F 6F726D61 74 
+042294 0A00                A  2087    	DB	10,0
+                           A  2088    	SEGMENT CODE
+                           A  2089    ;  167	
+                           A  2090    ;  168	void assign_sample(int8_t sample_id, ui
+040B48                     A  2091    _assign_sample:
+                           A  2092    .DEFINE "_assign_sample"
+                           A  2093    
+                           A  2094    .VALUE _assign_sample
+                           A  2095    
+                           A  2096    .CLASS 2
+                           A  2097    
+                           A  2098    .TYPE 65
+                           A  2099    
+                           A  2100    .ENDEF
+                           A  2101    
+                           A  2102    .BEGFUNC "assign_sample",168,"_assign_sample"
+                           A  2103    
+                           A  2104    .LINE 168
+                           A  2105    
+                           A  2106    .DEFINE "sample_id"
+                           A  2107    
+                           A  2108    .CLASS 65
+                           A  2109    
+                           A  2110    .VALUE 6
+                           A  2111    
+                           A  2112    .TYPE 2
+                           A  2113    
+                           A  2114    .ENDEF
+                           A  2115    
+                           A  2116    .DEFINE "channel"
+                           A  2117    
+                           A  2118    .CLASS 65
+                           A  2119    
+                           A  2120    .VALUE 9
+                           A  2121    
+                           A  2122    .TYPE 12
+                           A  2123    
+                           A  2124    .ENDEF
+                           A  2125    
+040B48 DDE5                A  2126    	PUSH	IX
+040B4A DD210000 00         A  2127    	LD	IX,0
+040B4F DD39                A  2128    	ADD	IX,SP
+                           A  2129    ;  169		
+                           A  2130    ;  170		putch(23);
+                           A  2131    .LINE 170
+                           A  2132    
+040B51 01170000            A  2133    	LD	BC,23
+040B55 C5                  A  2134    	PUSH	BC
+040B56 CD DA 18 04         A  2135    	CALL	_putch
+040B5A C1                  A  2136    	POP	BC
+                           A  2137    ;  171		putch(0);
+                           A  2138    .LINE 171
+                           A  2139    
+040B5B 01000000            A  2140    	LD	BC,0
+040B5F C5                  A  2141    	PUSH	BC
+040B60 CD DA 18 04         A  2142    	CALL	_putch
+040B64 C1                  A  2143    	POP	BC
+                           A  2144    ;  172		putch(133);
+                           A  2145    .LINE 172
+                           A  2146    
+040B65 01850000            A  2147    	LD	BC,133
+040B69 C5                  A  2148    	PUSH	BC
+040B6A CD DA 18 04         A  2149    	CALL	_putch
+040B6E C1                  A  2150    	POP	BC
+                           A  2151    ;  173		putch(channel);
+                           A  2152    .LINE 173
+                           A  2153    
+040B6F DD7E09              A  2154    	LD	A,(IX+%9)
+040B72 B7ED62              A  2155    	UEXT	HL
+040B75 6F                  A  2156    	LD	L,A
+040B76 E5                  A  2157    	PUSH	HL
+040B77 CD DA 18 04         A  2158    	CALL	_putch
+040B7B C1                  A  2159    	POP	BC
+                           A  2160    ;  174		putch(4);
+                           A  2161    .LINE 174
+                           A  2162    
+040B7C 01040000            A  2163    	LD	BC,4
+040B80 C5                  A  2164    	PUSH	BC
+040B81 CD DA 18 04         A  2165    	CALL	_putch
+040B85 C1                  A  2166    	POP	BC
+                           A  2167    ;  175		putch(sample_id * -1);
+                           A  2168    .LINE 175
+                           A  2169    
+040B86 DD7E06              A  2170    	LD	A,(IX+%6)
+040B89 17ED62              A  2171    	SEXT	HL
+040B8C DD6E06              A  2172    	LD	L,(IX+%6)
+040B8F CD 67 21 04         A  2173    	CALL	__ineg
+040B93 E5                  A  2174    	PUSH	HL
+040B94 CD DA 18 04         A  2175    	CALL	_putch
+040B98 C1                  A  2176    	POP	BC
+                           A  2177    ;  176		
+                           A  2178    ;  177	}
+                           A  2179    .LINE 177
+                           A  2180    
+040B99 DDF9                A  2181    	LD	SP,IX
+040B9B DDE1                A  2182    	POP	IX
+040B9D C9                  A  2183    	RET	
+                           A  2184    
+                           A  2185    
+                           A  2186    ;**************************** _assign_sample **
+                           A  2187    ;Name                         Addr/Register   S
+                           A  2188    ;_putch                              IMPORT  --
+                           A  2189    ;channel                               IX+9    
+                           A  2190    ;sample_id                             IX+6    
+                           A  2191    
+                           A  2192    
+                           A  2193    ; Stack Frame Size: 12 (bytes)
+                           A  2194    ;       Spill Code: 0 (instruction)
+                           A  2195    
+                           A  2196    
+                           A  2197    .ENDFUNC "assign_sample",177,"_assign_sample"
+                           A  2198    ;  178	
+                           A  2199    ;  179	void play_sample(uint8_t channel, uint8
+040B9E                     A  2200    _play_sample:
+                           A  2201    .DEFINE "_play_sample"
+                           A  2202    
+                           A  2203    .VALUE _play_sample
+                           A  2204    
+                           A  2205    .CLASS 2
+                           A  2206    
+                           A  2207    .TYPE 65
+                           A  2208    
+                           A  2209    .ENDEF
+                           A  2210    
+                           A  2211    .BEGFUNC "play_sample",179,"_play_sample"
+                           A  2212    
+                           A  2213    .LINE 179
+                           A  2214    
+                           A  2215    .DEFINE "channel"
+                           A  2216    
+                           A  2217    .CLASS 65
+                           A  2218    
+                           A  2219    .VALUE 6
+                           A  2220    
+                           A  2221    .TYPE 12
+                           A  2222    
+                           A  2223    .ENDEF
+                           A  2224    
+                           A  2225    .DEFINE "volume"
+                           A  2226    
+                           A  2227    .CLASS 65
+                           A  2228    
+                           A  2229    .VALUE 9
+                           A  2230    
+                           A  2231    .TYPE 12
+                           A  2232    
+                           A  2233    .ENDEF
+                           A  2234    
+                           A  2235    .DEFINE "duration"
+                           A  2236    
+                           A  2237    .CLASS 65
+                           A  2238    
+                           A  2239    .VALUE 12
+                           A  2240    
+                           A  2241    .TYPE 14
+                           A  2242    
+                           A  2243    .ENDEF
+                           A  2244    
+040B9E DDE5                A  2245    	PUSH	IX
+040BA0 DD210000 00         A  2246    	LD	IX,0
+040BA5 DD39                A  2247    	ADD	IX,SP
+                           A  2248    ;  180		
+                           A  2249    ;  181		putch(23);
+                           A  2250    .LINE 181
+                           A  2251    
+040BA7 01170000            A  2252    	LD	BC,23
+040BAB C5                  A  2253    	PUSH	BC
+040BAC CD DA 18 04         A  2254    	CALL	_putch
+040BB0 C1                  A  2255    	POP	BC
+                           A  2256    ;  182		putch(0);
+                           A  2257    .LINE 182
+                           A  2258    
+040BB1 01000000            A  2259    	LD	BC,0
+040BB5 C5                  A  2260    	PUSH	BC
+040BB6 CD DA 18 04         A  2261    	CALL	_putch
+040BBA C1                  A  2262    	POP	BC
+                           A  2263    ;  183		putch(133);
+                           A  2264    .LINE 183
+                           A  2265    
+040BBB 01850000            A  2266    	LD	BC,133
+040BBF C5                  A  2267    	PUSH	BC
+040BC0 CD DA 18 04         A  2268    	CALL	_putch
+040BC4 C1                  A  2269    	POP	BC
+                           A  2270    ;  184		putch(channel);
+                           A  2271    .LINE 184
+                           A  2272    
+040BC5 DD7E06              A  2273    	LD	A,(IX+%6)
+040BC8 B7ED62              A  2274    	UEXT	HL
+040BCB 6F                  A  2275    	LD	L,A
+040BCC E5                  A  2276    	PUSH	HL
+040BCD CD DA 18 04         A  2277    	CALL	_putch
+040BD1 C1                  A  2278    	POP	BC
+                           A  2279    ;  185		putch(0);
+                           A  2280    .LINE 185
+                           A  2281    
+040BD2 01000000            A  2282    	LD	BC,0
+040BD6 C5                  A  2283    	PUSH	BC
+040BD7 CD DA 18 04         A  2284    	CALL	_putch
+040BDB C1                  A  2285    	POP	BC
+                           A  2286    ;  186		putch(volume);
+                           A  2287    .LINE 186
+                           A  2288    
+040BDC DD7E09              A  2289    	LD	A,(IX+%9)
+040BDF B7ED62              A  2290    	UEXT	HL
+040BE2 6F                  A  2291    	LD	L,A
+040BE3 E5                  A  2292    	PUSH	HL
+040BE4 CD DA 18 04         A  2293    	CALL	_putch
+040BE8 C1                  A  2294    	POP	BC
+                           A  2295    ;  187		putch16(0);
+                           A  2296    .LINE 187
+                           A  2297    
+040BE9 01000000            A  2298    	LD	BC,0
+040BED C5                  A  2299    	PUSH	BC
+040BEE CD 46 01 04         A  2300    	CALL	_putch16
+040BF2 C1                  A  2301    	POP	BC
+                           A  2302    ;  188		putch16(duration);
+                           A  2303    .LINE 188
+                           A  2304    
+040BF3 DD070C              A  2305    	LD	BC,(IX+%C)
+040BF6 C5                  A  2306    	PUSH	BC
+040BF7 CD 46 01 04         A  2307    	CALL	_putch16
+040BFB C1                  A  2308    	POP	BC
+                           A  2309    ;  189		
+                           A  2310    ;  190	}
+                           A  2311    .LINE 190
+                           A  2312    
+040BFC DDF9                A  2313    	LD	SP,IX
+040BFE DDE1                A  2314    	POP	IX
+040C00 C9                  A  2315    	RET	
+                           A  2316    
+                           A  2317    
+                           A  2318    ;**************************** _play_sample ****
+                           A  2319    ;Name                         Addr/Register   S
+                           A  2320    ;_putch                              IMPORT  --
+                           A  2321    ;duration                             IX+12    
+                           A  2322    ;volume                                IX+9    
+                           A  2323    ;channel                               IX+6    
+                           A  2324    
+                           A  2325    
+                           A  2326    ; Stack Frame Size: 15 (bytes)
+                           A  2327    ;       Spill Code: 0 (instruction)
+                           A  2328    
+                           A  2329    
+                           A  2330    .ENDFUNC "play_sample",190,"_play_sample"
+                           A  2331    ;  191	
+                           A  2332    ;  192	int main(int argc, char * argv[])
+                           A  2333    ;  193	{
+040C01                     A  2334    _main:
+                           A  2335    .DEFINE "_main"
+                           A  2336    
+                           A  2337    .VALUE _main
+                           A  2338    
+                           A  2339    .CLASS 2
+                           A  2340    
+                           A  2341    .TYPE 68
+                           A  2342    
+                           A  2343    .ENDEF
+                           A  2344    
+                           A  2345    .BEGFUNC "main",193,"_main"
+                           A  2346    
+                           A  2347    .LINE 193
+                           A  2348    
+                           A  2349    .DEFINE "argc"
+                           A  2350    
+                           A  2351    .CLASS 65
+                           A  2352    
+                           A  2353    .VALUE 6
+                           A  2354    
+                           A  2355    .TYPE 4
+                           A  2356    
+                           A  2357    .ENDEF
+                           A  2358    
+                           A  2359    .DEFINE "argv"
+                           A  2360    
+                           A  2361    .CLASS 65
+                           A  2362    
+                           A  2363    .VALUE 9
+                           A  2364    
+                           A  2365    .TYPE 290
+                           A  2366    
+                           A  2367    .ENDEF
+                           A  2368    
+                           A  2369    .DEFINE "sample_id"
+                           A  2370    
+                           A  2371    .CLASS 65
+                           A  2372    
+                           A  2373    .VALUE -1
+                           A  2374    
+                           A  2375    .TYPE 12
+                           A  2376    
+                           A  2377    .ENDEF
+                           A  2378    
+                           A  2379    .DEFINE "channel"
+                           A  2380    
+                           A  2381    .CLASS 65
+                           A  2382    
+                           A  2383    .VALUE -2
+                           A  2384    
+                           A  2385    .TYPE 12
+                           A  2386    
+                           A  2387    .ENDEF
+                           A  2388    
+                           A  2389    .DEFINE "volume"
+                           A  2390    
+                           A  2391    .CLASS 65
+                           A  2392    
+                           A  2393    .VALUE -3
+                           A  2394    
+                           A  2395    .TYPE 12
+                           A  2396    
+                           A  2397    .ENDEF
+                           A  2398    
+                           A  2399    .DEFINE "duration"
+                           A  2400    
+                           A  2401    .CLASS 65
+                           A  2402    
+                           A  2403    .VALUE -6
+                           A  2404    
+                           A  2405    .TYPE 14
+                           A  2406    
+                           A  2407    .ENDEF
+                           A  2408    
+040C01 DDE5                A  2409    	PUSH	IX
+040C03 DD210000 00         A  2410    	LD	IX,0
+040C08 DD39                A  2411    	ADD	IX,SP
+040C0A C5                  A  2412    	PUSH	BC
+040C0B C5                  A  2413    	PUSH	BC
+                           A  2414    ;  194	
+                           A  2415    ;  195		uint8_t sample_id, channel, volume;
+                           A  2416    ;  196		uint24_t duration;
+                           A  2417    ;  197		
+                           A  2418    ;  198		//printf("%u args\r\n", argc);
+                           A  2419    ;  199		//Args: 1=filenames, 2=sample slot,
+                           A  2420    ;  200		
+                           A  2421    ;  201	    if ((argc != 4) && (argc != 6)) {
+                           A  2422    .LINE 201
+                           A  2423    
+040C0C 01040000            A  2424    	LD	BC,4
+040C10 DD2706              A  2425    	LD	HL,(IX+%6)
+040C13 B7                  A  2426    	OR	A,A
+040C14 ED42                A  2427    	SBC	HL,BC
+040C16 28 3B               A  2428    	JR	Z,L_87
+040C18 01060000            A  2429    	LD	BC,6
+040C1C DD2706              A  2430    	LD	HL,(IX+%6)
+040C1F B7                  A  2431    	OR	A,A
+040C20 ED42                A  2432    	SBC	HL,BC
+040C22 28 2F               A  2433    	JR	Z,L_87
+                           A  2434    ;  202	        printf("Usage is %s <filename> 
+                           A  2435    .LINE 202
+                           A  2436    
+040C24 01 42 20 04         A  2437    	LD	BC,___print_uputch
+040C28 ED43 3C 22 04       A  2438    	LD	(___print_xputch),BC
+040C2D 01 96 22 04         A  2439    	LD	BC,L__73
+040C31 C5                  A  2440    	PUSH	BC
+040C32 CD A7 1E 04         A  2441    	CALL	___print_sendstring
+040C36 C1                  A  2442    	POP	BC
+040C37 DD2709              A  2443    	LD	HL,(IX+%9)
+040C3A ED07                A  2444    	LD	BC,(HL)
+040C3C C5                  A  2445    	PUSH	BC
+040C3D CD A7 1E 04         A  2446    	CALL	___print_sendstring
+040C41 C1                  A  2447    	POP	BC
+040C42 01 A0 22 04         A  2448    	LD	BC,L__74
+040C46 C5                  A  2449    	PUSH	BC
+040C47 CD A7 1E 04         A  2450    	CALL	___print_sendstring
+040C4B C1                  A  2451    	POP	BC
+                           A  2452    ;  203	        return 0;
+                           A  2453    .LINE 203
+                           A  2454    
+040C4C B7                  A  2455    	OR	A,A
+040C4D ED62                A  2456    	SBC	HL,HL
+040C4F C3 13 0D 04         A  2457    	JR	L_92
+                           A  2458    ;  204	    }
+040C53                     A  2459    L_87:
+                           A  2460    .LINE 204
+                           A  2461    
+                           A  2462    ;  205		
+                           A  2463    ;  206		sample_id = strtou8(argv[2]);
+                           A  2464    .LINE 206
+                           A  2465    
+040C53 DD3109              A  2466    	LD	IY,(IX+%9)
+040C56 ED2306              A  2467    	LEA	HL,IY+%6
+040C59 ED07                A  2468    	LD	BC,(HL)
+040C5B C5                  A  2469    	PUSH	BC
+040C5C CD 82 01 04         A  2470    	CALL	_strtou8
+040C60 C1                  A  2471    	POP	BC
+040C61 DD77FF              A  2472    	LD	(IX+%FFFFFFFF),A
+                           A  2473    ;  207		channel = strtou8(argv[3]);
+                           A  2474    .LINE 207
+                           A  2475    
+040C64 DD3109              A  2476    	LD	IY,(IX+%9)
+040C67 ED2309              A  2477    	LEA	HL,IY+%9
+040C6A ED07                A  2478    	LD	BC,(HL)
+040C6C C5                  A  2479    	PUSH	BC
+040C6D CD 82 01 04         A  2480    	CALL	_strtou8
+040C71 C1                  A  2481    	POP	BC
+040C72 DD77FE              A  2482    	LD	(IX+%FFFFFFFE),A
+                           A  2483    ;  208		
+                           A  2484    ;  209		if (argc == 4) {
+                           A  2485    .LINE 209
+                           A  2486    
+040C75 01040000            A  2487    	LD	BC,4
+040C79 DD2706              A  2488    	LD	HL,(IX+%6)
+040C7C B7                  A  2489    	OR	A,A
+040C7D ED42                A  2490    	SBC	HL,BC
+040C7F 20 27               A  2491    	JR	NZ,L_90
+                           A  2492    ;  210			//printf("args: 1=%s, 2=%u, 3=%
+                           A  2493    ;  211			load_wav(argv[1], sample_id);
+                           A  2494    .LINE 211
+                           A  2495    
+040C81 DD4EFF              A  2496    	LD	C,(IX+%FFFFFFFF)
+040C84 0600                A  2497    	LD	B,%0
+040C86 C5                  A  2498    	PUSH	BC
+040C87 DD3109              A  2499    	LD	IY,(IX+%9)
+040C8A ED2303              A  2500    	LEA	HL,IY+%3
+040C8D ED07                A  2501    	LD	BC,(HL)
+040C8F C5                  A  2502    	PUSH	BC
+040C90 CD 68 03 04         A  2503    	CALL	_load_wav
+040C94 C1                  A  2504    	POP	BC
+040C95 C1                  A  2505    	POP	BC
+                           A  2506    ;  212			assign_sample(sample_id, channe
+                           A  2507    .LINE 212
+                           A  2508    
+040C96 DD4EFE              A  2509    	LD	C,(IX+%FFFFFFFE)
+040C99 0600                A  2510    	LD	B,%0
+040C9B C5                  A  2511    	PUSH	BC
+040C9C DD4EFF              A  2512    	LD	C,(IX+%FFFFFFFF)
+040C9F C5                  A  2513    	PUSH	BC
+040CA0 CD 48 0B 04         A  2514    	CALL	_assign_sample
+040CA4 C1                  A  2515    	POP	BC
+040CA5 C1                  A  2516    	POP	BC
+                           A  2517    ;  213		} else if (argc == 6) {
+                           A  2518    .LINE 213
+                           A  2519    
+040CA6 18 68               A  2520    	JR	L_91
+040CA8                     A  2521    L_90:
+040CA8 01060000            A  2522    	LD	BC,6
+040CAC DD2706              A  2523    	LD	HL,(IX+%6)
+040CAF B7                  A  2524    	OR	A,A
+040CB0 ED42                A  2525    	SBC	HL,BC
+040CB2 20 5C               A  2526    	JR	NZ,L_91
+                           A  2527    ;  214			volume = strtou8(argv[4]);
+                           A  2528    .LINE 214
+                           A  2529    
+040CB4 DD3109              A  2530    	LD	IY,(IX+%9)
+040CB7 ED230C              A  2531    	LEA	HL,IY+%C
+040CBA ED07                A  2532    	LD	BC,(HL)
+040CBC C5                  A  2533    	PUSH	BC
+040CBD CD 82 01 04         A  2534    	CALL	_strtou8
+040CC1 C1                  A  2535    	POP	BC
+040CC2 DD77FD              A  2536    	LD	(IX+%FFFFFFFD),A
+                           A  2537    ;  215			duration = strtou24(argv[5]);
+                           A  2538    .LINE 215
+                           A  2539    
+040CC5 DD3109              A  2540    	LD	IY,(IX+%9)
+040CC8 ED230F              A  2541    	LEA	HL,IY+%F
+040CCB ED07                A  2542    	LD	BC,(HL)
+040CCD C5                  A  2543    	PUSH	BC
+040CCE CD 4F 02 04         A  2544    	CALL	_strtou24
+040CD2 C1                  A  2545    	POP	BC
+040CD3 DD2FFA              A  2546    	LD	(IX+%FFFFFFFA),HL
+                           A  2547    ;  216			//printf("args: 1=%s, 2=%u, 3=%
+                           A  2548    ;  217			load_wav(argv[1], sample_id);
+                           A  2549    .LINE 217
+                           A  2550    
+040CD6 DD4EFF              A  2551    	LD	C,(IX+%FFFFFFFF)
+040CD9 0600                A  2552    	LD	B,%0
+040CDB C5                  A  2553    	PUSH	BC
+040CDC DD3109              A  2554    	LD	IY,(IX+%9)
+040CDF ED2303              A  2555    	LEA	HL,IY+%3
+040CE2 ED07                A  2556    	LD	BC,(HL)
+040CE4 C5                  A  2557    	PUSH	BC
+040CE5 CD 68 03 04         A  2558    	CALL	_load_wav
+040CE9 C1                  A  2559    	POP	BC
+040CEA C1                  A  2560    	POP	BC
+                           A  2561    ;  218			assign_sample(sample_id, channe
+                           A  2562    .LINE 218
+                           A  2563    
+040CEB DD4EFE              A  2564    	LD	C,(IX+%FFFFFFFE)
+040CEE 0600                A  2565    	LD	B,%0
+040CF0 C5                  A  2566    	PUSH	BC
+040CF1 DD4EFF              A  2567    	LD	C,(IX+%FFFFFFFF)
+040CF4 C5                  A  2568    	PUSH	BC
+040CF5 CD 48 0B 04         A  2569    	CALL	_assign_sample
+040CF9 C1                  A  2570    	POP	BC
+040CFA C1                  A  2571    	POP	BC
+                           A  2572    ;  219			play_sample(sample_id, volume, 
+                           A  2573    .LINE 219
+                           A  2574    
+040CFB DD07FA              A  2575    	LD	BC,(IX+%FFFFFFFA)
+040CFE C5                  A  2576    	PUSH	BC
+040CFF DD4EFD              A  2577    	LD	C,(IX+%FFFFFFFD)
+040D02 0600                A  2578    	LD	B,%0
+040D04 C5                  A  2579    	PUSH	BC
+040D05 DD4EFF              A  2580    	LD	C,(IX+%FFFFFFFF)
+040D08 C5                  A  2581    	PUSH	BC
+040D09 CD 9E 0B 04         A  2582    	CALL	_play_sample
+040D0D C1                  A  2583    	POP	BC
+040D0E C1                  A  2584    	POP	BC
+040D0F C1                  A  2585    	POP	BC
+                           A  2586    ;  220		}
+040D10                     A  2587    L_91:
+                           A  2588    .LINE 220
+                           A  2589    
+                           A  2590    ;  221		
+                           A  2591    ;  222		return 0;
+                           A  2592    .LINE 222
+                           A  2593    
+040D10 B7                  A  2594    	OR	A,A
+040D11 ED62                A  2595    	SBC	HL,HL
+040D13                     A  2596    L_92:
+                           A  2597    .LINE 223
+                           A  2598    
+040D13 DDF9                A  2599    	LD	SP,IX
+040D15 DDE1                A  2600    	POP	IX
+040D17 C9                  A  2601    	RET	
+                           A  2602    
+                           A  2603    
+                           A  2604    ;**************************** _main ***********
+                           A  2605    ;Name                         Addr/Register   S
+                           A  2606    ;___print_sendstring                 IMPORT  --
+                           A  2607    ;___print_xputch                     IMPORT    
+                           A  2608    ;___print_uputch                     IMPORT  --
+                           A  2609    ;duration                              IX-6    
+                           A  2610    ;volume                                IX-3    
+                           A  2611    ;channel                               IX-2    
+                           A  2612    ;sample_id                             IX-1    
+                           A  2613    ;argv                                  IX+9    
+                           A  2614    ;argc                                  IX+6    
+                           A  2615    
+                           A  2616    
+                           A  2617    ; Stack Frame Size: 18 (bytes)
+                           A  2618    ;       Spill Code: 0 (instruction)
+                           A  2619    
+                           A  2620    
+                           A  2621    .ENDFUNC "main",223,"_main"
+                           A  2622    	SEGMENT STRSECT
+042296                     A  2623    L__73:
+042296 55736167 65206973   A  2624    	DB	"Usage is "
+04229E 20 
+04229F 00                  A  2625    	DB	0
+0422A0                     A  2626    L__74:
+0422A0 203C6669 6C656E61   A  2627    	DB	" <filename> <sample slot> <channel> [v
+0422A8 6D653E20 3C73616D 
+0422B0 706C6520 736C6F74 
+0422B8 3E203C63 68616E6E 
+0422C0 656C3E20 5B766F6C 
+0422C8 756D655D 205B6475 
+0422D0 72617469 6F6E5D 
+0422D7 0D0A00              A  2628    	DB	13,10,0
+                           A  2629    	XREF _mos_fread:ROM
+                           A  2630    	XREF _mos_feof:ROM
+                           A  2631    	XREF _mos_fgetc:ROM
+                           A  2632    	XREF _mos_fclose:ROM
+                           A  2633    	XREF _mos_fopen:ROM
+                           A  2634    	XREF _mos_puts:ROM
+                           A  2635    	XREF _putch:ROM
+                           A  2636    	XREF _malloc:ROM
+                           A  2637    	XREF _free:ROM
+                           A  2638    	XREF ___print_sendstring:ROM
+                           A  2639    	XREF ___print_xputch:ROM
+                           A  2640    	XREF ___print_uputch:ROM
+                           A  2641    	XREF __lcmpu:ROM
+                           A  2642    	XREF __ladd:ROM
+                           A  2643    	XREF __lsub:ROM
+                           A  2644    	XREF __lmulu:ROM
+                           A  2645    	XREF __ineg:ROM
+                           A  2646    	XREF __lor:ROM
+                           A  2647    	XREF __stoiu:ROM
+                           A  2648    	XREF __ildix:ROM
+                           A  2649    	XREF __istix:ROM
+                           A  2650    	XDEF _main
+                           A  2651    	XDEF _play_sample
+                           A  2652    	XDEF _assign_sample
+                           A  2653    	XDEF _load_wav
+                           A  2654    	XDEF _strtou24
+                           A  2655    	XDEF _strtou8
+                           A  2656    	XDEF _putch16
+                           A  2657    	XDEF _putch24
+                           A  2658    	END
+
+
+Errors: 0
+Warnings: 0
+Lines Assembled: 2659
